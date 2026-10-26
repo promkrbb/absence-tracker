@@ -222,7 +222,7 @@ input[type=text], input[type=date], input[type=time], select {
 .subj-card .body { flex:1; min-width:0; }
 .subj-card .name { font-weight:700; font-size:15px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
 .subj-card .sub { font-size:12px; color:var(--muted); margin-top:2px; }
-.subj-card .meter { height:8px; border-radius:5px; background:var(--line); margin-top:9px; overflow:hidden; }
+.subj-card .meter { display:flex; height:8px; border-radius:5px; background:var(--line); margin-top:9px; overflow:hidden; }
 .subj-card .meter > i { display:block; height:100%; border-radius:5px; background:var(--good); transition:width .35s ease; }
 .subj-card .left { flex:0 0 auto; text-align:center; min-width:56px; }
 .subj-card .left b { display:block; font-size:24px; font-weight:800; line-height:1; }
@@ -256,3 +256,9 @@ input[type=text], input[type=date], input[type=time], select {
 .big-hero { text-align:center; padding:6px 0 2px; }
 .big-hero .n { font-size:44px; font-weight:800; line-height:1; }
 .big-hero .of { color:var(--muted); font-size:14px; margin-top:4px; }
+
+/* planned absences: striped segment after the solid "used" one */
+.subj-card .meter > i.plan { border-radius:0 5px 5px 0; background:repeating-linear-gradient(45deg, var(--warn) 0 4px, transparent 4px 8px) !important; opacity:.8; }
+.tag-plan { font-size:11px; font-weight:700; color:var(--warn); border:1px solid var(--warn); border-radius:6px; padding:0 5px; margin-left:6px; }
+.share-code { font-family: ui-monospace, monospace; font-size:24px; font-weight:800; letter-spacing:3px; color:var(--brand); }
+.friend-card .subj-card .name { font-size:14px; }

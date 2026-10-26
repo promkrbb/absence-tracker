@@ -31,7 +31,7 @@
     </div>
     <p class="note" data-i18n="todayNote">Tap “Absent” on a class you missed today — it logs those periods against your 20% budget.</p>
     <div id="todayList"></div>
-    <div id="todayEmpty" class="empty" style="display:none;"><span class="big">🌤️</span><span data-i18n="noClassToday">No classes today. Enjoy!</span></div>
+    <div id="todayEmpty" class="empty" style="display:none;"><span class="big">🌤️</span><span id="todayEmptyText">No classes today. Enjoy!</span></div>
     <div id="firstRunCTA" class="card" style="display:none; text-align:center;">
       <div style="font-size:34px;">🎓</div>
       <h3 style="margin:6px 0 4px;" data-i18n="pickSectionTitle">Pick your class</h3>
@@ -59,6 +59,28 @@
     </div>
     <p class="note" data-i18n="subjectsNote">These loaded from your section. Tap one to fix its total periods or budget if the school counts differently.</p>
     <div id="subjectsList"></div>
+  </section>
+
+  <!-- ============ FRIENDS ============ -->
+  <section id="screen-friends" class="screen">
+    <h3 style="font-size:19px; margin:10px 4px;" data-i18n="friendsTitle">Friends</h3>
+    <p class="note" data-i18n="friendsNote">Share your code with a friend. Once one of you adds the other's code, you can both see how close each other is to the limit.</p>
+    <div class="card">
+      <div class="setting-line">
+        <div>
+          <div class="t" data-i18n="myCode">My code</div>
+          <div class="share-code" id="myCode">—</div>
+        </div>
+        <button class="btn ghost small" id="copyMyCode">📋</button>
+      </div>
+      <label class="field" data-i18n="addFriend" style="margin-top:12px;">Add a friend's code</label>
+      <div style="display:flex; gap:8px;">
+        <input type="text" id="friendCode" data-i18n-ph="friendCodePh" placeholder="e.g. 7KQ2XD" autocapitalize="characters" maxlength="8" style="flex:1;" />
+        <button class="btn primary small" id="linkBtn" data-i18n="link" style="width:auto;">Add</button>
+      </div>
+    </div>
+    <div id="friendsList"></div>
+    <div id="friendsEmpty" class="empty" style="display:none;"><span class="big">👥</span><span data-i18n="noFriends">No friends added yet.</span></div>
   </section>
 
   <!-- ============ SETTINGS ============ -->
@@ -126,6 +148,7 @@
     <button data-tab="today" class="active"><span class="ic">📌</span><span data-i18n="tabToday">Today</span></button>
     <button data-tab="overview"><span class="ic">📊</span><span data-i18n="tabOverview">Overview</span></button>
     <button data-tab="subjects"><span class="ic">📚</span><span data-i18n="tabSubjects">Subjects</span></button>
+    <button data-tab="friends"><span class="ic">👥</span><span data-i18n="tabFriends">Friends</span></button>
     <button data-tab="settings"><span class="ic">⚙️</span><span data-i18n="tabSettings">Settings</span></button>
   </nav>
 

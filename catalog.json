@@ -1,10 +1,61 @@
 {
-  "semester": "1/2569",
+  "semester": "2/2569",
   "weeks": 20,
   "weekAnchor": {
-    "week": 17,
-    "letter": "A",
-    "monday": "2026-08-31"
+    "week": 2,
+    "letter": "B",
+    "monday": "2026-10-26"
+  },
+  "calendar": {
+    "start": "2026-10-26",
+    "lastClass": "2027-02-05",
+    "noClass": [
+      {
+        "date": "2026-12-07",
+        "en": "Father's Day (substitute)",
+        "th": "วันหยุดชดเชยวันพ่อแห่งชาติ"
+      },
+      {
+        "date": "2026-12-10",
+        "en": "Constitution Day",
+        "th": "วันรัฐธรรมนูญ"
+      },
+      {
+        "date": "2026-12-16",
+        "en": "Special holiday",
+        "th": "วันหยุดราชการกรณีพิเศษ"
+      },
+      {
+        "date": "2026-12-21",
+        "en": "Midterm exam",
+        "th": "สอบกลางภาค"
+      },
+      {
+        "date": "2026-12-22",
+        "en": "Exam study day",
+        "th": "หยุดอ่านหนังสือสอบ"
+      },
+      {
+        "date": "2026-12-23",
+        "en": "Midterm exam",
+        "th": "สอบกลางภาค"
+      },
+      {
+        "date": "2026-12-24",
+        "en": "Exam study day",
+        "th": "หยุดอ่านหนังสือสอบ"
+      },
+      {
+        "date": "2026-12-25",
+        "en": "Midterm exam",
+        "th": "สอบกลางภาค"
+      },
+      {
+        "date": "2027-01-01",
+        "en": "New Year's Day",
+        "th": "วันขึ้นปีใหม่"
+      }
+    ]
   },
   "days": {
     "1": "จันทร์",
@@ -28,72 +79,104 @@
     "ม.6/1": {
       "subjects": [
         {
-          "code": "อ33202",
-          "name": "การเขียนภาษาอังกฤษเชิงวิชาการ 1",
-          "per2wk": 4,
-          "semTotal": 40,
-          "budget": 8.0,
-          "color": "#4f46e5",
+          "code": "ว33241",
+          "name": "ชีววิทยา 4",
+          "per2wk": 8,
+          "credits": 2.0,
+          "semTotal": 80,
+          "budget": 16,
           "slots": [
             {
               "week": "A",
-              "day": 4,
+              "day": 1,
               "period": 1
             },
             {
               "week": "A",
-              "day": 4,
+              "day": 1,
               "period": 2
             },
             {
+              "week": "A",
+              "day": 1,
+              "period": 7
+            },
+            {
+              "week": "A",
+              "day": 1,
+              "period": 8
+            },
+            {
               "week": "B",
-              "day": 4,
+              "day": 1,
               "period": 1
             },
             {
               "week": "B",
-              "day": 4,
+              "day": 1,
               "period": 2
+            },
+            {
+              "week": "B",
+              "day": 1,
+              "period": 7
+            },
+            {
+              "week": "B",
+              "day": 1,
+              "period": 8
             }
-          ]
+          ],
+          "color": "#4f46e5"
         },
         {
-          "code": "ค33101",
-          "name": "คณิตศาสตร์ ",
-          "per2wk": 4,
-          "semTotal": 40,
-          "budget": 8.0,
-          "color": "#16a34a",
+          "code": "ว33221",
+          "name": "เคมี 4",
+          "per2wk": 6,
+          "credits": 1.5,
+          "semTotal": 60,
+          "budget": 12,
           "slots": [
             {
               "week": "A",
-              "day": 3,
+              "day": 2,
+              "period": 3
+            },
+            {
+              "week": "A",
+              "day": 2,
+              "period": 4
+            },
+            {
+              "week": "B",
+              "day": 2,
+              "period": 3
+            },
+            {
+              "week": "B",
+              "day": 2,
+              "period": 4
+            },
+            {
+              "week": "B",
+              "day": 2,
               "period": 5
             },
             {
-              "week": "A",
-              "day": 3,
-              "period": 6
-            },
-            {
               "week": "B",
-              "day": 3,
+              "day": 2,
               "period": 6
-            },
-            {
-              "week": "B",
-              "day": 3,
-              "period": 7
             }
-          ]
+          ],
+          "color": "#0891b2"
         },
         {
           "code": "ค33201",
           "name": "คณิตศาสตร์เพิ่มเติม 5",
           "per2wk": 4,
+          "credits": 1.0,
           "semTotal": 40,
-          "budget": 8.0,
-          "color": "#d97706",
+          "budget": 8,
           "slots": [
             {
               "week": "A",
@@ -115,255 +198,47 @@
               "day": 1,
               "period": 6
             }
-          ]
+          ],
+          "color": "#16a34a"
         },
         {
-          "code": "ว33221",
-          "name": "เคมี 4",
+          "code": "ท33102",
+          "name": "พินิจภาษาไทย 6",
           "per2wk": 4,
+          "credits": 1.0,
           "semTotal": 40,
-          "budget": 8.0,
-          "color": "#e11d48",
+          "budget": 8,
           "slots": [
             {
               "week": "A",
               "day": 2,
-              "period": 3
-            },
-            {
-              "week": "A",
-              "day": 2,
-              "period": 4
-            },
-            {
-              "week": "B",
-              "day": 2,
-              "period": 3
-            },
-            {
-              "week": "B",
-              "day": 2,
-              "period": 4
-            }
-          ]
-        },
-        {
-          "code": "ว33221(1)",
-          "name": "เคมี 4 (1)",
-          "per2wk": 2,
-          "semTotal": 20,
-          "budget": 4.0,
-          "color": "#0ea5e9",
-          "slots": [
-            {
-              "week": "B",
-              "day": 2,
-              "period": 5
-            },
-            {
-              "week": "B",
-              "day": 2,
-              "period": 6
-            }
-          ]
-        },
-        {
-          "code": "ว33241",
-          "name": "ชีววิทยา 4",
-          "per2wk": 4,
-          "semTotal": 40,
-          "budget": 8.0,
-          "color": "#9333ea",
-          "slots": [
-            {
-              "week": "A",
-              "day": 1,
-              "period": 7
-            },
-            {
-              "week": "A",
-              "day": 1,
-              "period": 8
-            },
-            {
-              "week": "B",
-              "day": 1,
-              "period": 7
-            },
-            {
-              "week": "B",
-              "day": 1,
-              "period": 8
-            }
-          ]
-        },
-        {
-          "code": "ว33241 (1)",
-          "name": "ชีววิทยา 4 (1)",
-          "per2wk": 4,
-          "semTotal": 40,
-          "budget": 8.0,
-          "color": "#0891b2",
-          "slots": [
-            {
-              "week": "A",
-              "day": 1,
               "period": 1
             },
             {
               "week": "A",
-              "day": 1,
+              "day": 4,
               "period": 2
             },
             {
               "week": "B",
-              "day": 1,
-              "period": 1
-            },
-            {
-              "week": "B",
-              "day": 1,
-              "period": 2
-            }
-          ]
-        },
-        {
-          "code": "ศ33101",
-          "name": "ดุริยางคศิลป์สากล 1",
-          "per2wk": 2,
-          "semTotal": 20,
-          "budget": 4.0,
-          "color": "#c026d3",
-          "slots": [
-            {
-              "week": "A",
-              "day": 2,
-              "period": 6
-            },
-            {
-              "week": "A",
               "day": 2,
               "period": 7
-            }
-          ]
-        },
-        {
-          "code": "ก601",
-          "name": "แนะแนว6",
-          "per2wk": 2,
-          "semTotal": 20,
-          "budget": 4.0,
-          "color": "#4f46e5",
-          "slots": [
-            {
-              "week": "A",
-              "day": 4,
-              "period": 5
             },
             {
               "week": "B",
               "day": 3,
-              "period": 5
+              "period": 6
             }
-          ]
-        },
-        {
-          "code": "ส33101",
-          "name": "บูรณาการสังคมศึกษา 5",
-          "per2wk": 4,
-          "semTotal": 40,
-          "budget": 8.0,
-          "color": "#16a34a",
-          "slots": [
-            {
-              "week": "A",
-              "day": 3,
-              "period": 3
-            },
-            {
-              "week": "A",
-              "day": 3,
-              "period": 4
-            },
-            {
-              "week": "B",
-              "day": 3,
-              "period": 3
-            },
-            {
-              "week": "B",
-              "day": 3,
-              "period": 4
-            }
-          ]
-        },
-        {
-          "code": "ส33102",
-          "name": "ประวัติศาสตร์สากล",
-          "per2wk": 4,
-          "semTotal": 40,
-          "budget": 8.0,
-          "color": "#d97706",
-          "slots": [
-            {
-              "week": "A",
-              "day": 2,
-              "period": 1
-            },
-            {
-              "week": "A",
-              "day": 4,
-              "period": 3
-            },
-            {
-              "week": "B",
-              "day": 2,
-              "period": 2
-            },
-            {
-              "week": "B",
-              "day": 4,
-              "period": 4
-            }
-          ]
-        },
-        {
-          "code": "ท 33101",
-          "name": "พินิจภาษาไทย 5",
-          "per2wk": 4,
-          "semTotal": 40,
-          "budget": 8.0,
-          "color": "#e11d48",
-          "slots": [
-            {
-              "week": "A",
-              "day": 2,
-              "period": 5
-            },
-            {
-              "week": "A",
-              "day": 4,
-              "period": 4
-            },
-            {
-              "week": "B",
-              "day": 2,
-              "period": 1
-            },
-            {
-              "week": "B",
-              "day": 4,
-              "period": 3
-            }
-          ]
+          ],
+          "color": "#d97706"
         },
         {
           "code": "ว33201",
           "name": "ฟิสิกส์ 4",
           "per2wk": 4,
+          "credits": 1.0,
           "semTotal": 40,
-          "budget": 8.0,
-          "color": "#0ea5e9",
+          "budget": 8,
           "slots": [
             {
               "week": "A",
@@ -385,75 +260,78 @@
               "day": 1,
               "period": 4
             }
-          ]
+          ],
+          "color": "#e11d48"
         },
         {
-          "code": "อ33101",
-          "name": "ภาษาอังกฤษขั้นสูง 1",
+          "code": "ส33103",
+          "name": "บูรณาการสังคมศึกษา 6",
           "per2wk": 4,
+          "credits": 1.0,
           "semTotal": 40,
-          "budget": 8.0,
-          "color": "#9333ea",
+          "budget": 8,
           "slots": [
             {
               "week": "A",
-              "day": 5,
+              "day": 3,
               "period": 3
             },
             {
               "week": "A",
-              "day": 5,
+              "day": 3,
               "period": 4
             },
             {
               "week": "B",
-              "day": 5,
+              "day": 3,
               "period": 3
             },
             {
               "week": "B",
-              "day": 5,
+              "day": 3,
               "period": 4
             }
-          ]
+          ],
+          "color": "#9333ea"
         },
         {
-          "code": "อ33201",
-          "name": "ภาษาอังกฤษอ่าน-เขียน 5",
+          "code": "ส33104",
+          "name": "ประวัติศาสตร์ไทย",
           "per2wk": 4,
+          "credits": 1.0,
           "semTotal": 40,
-          "budget": 8.0,
-          "color": "#0891b2",
+          "budget": 8,
           "slots": [
             {
               "week": "A",
-              "day": 3,
-              "period": 1
+              "day": 4,
+              "period": 3
             },
             {
               "week": "A",
-              "day": 3,
-              "period": 2
+              "day": 4,
+              "period": 4
             },
             {
               "week": "B",
-              "day": 3,
-              "period": 1
+              "day": 4,
+              "period": 3
             },
             {
               "week": "B",
-              "day": 3,
-              "period": 2
+              "day": 4,
+              "period": 4
             }
-          ]
+          ],
+          "color": "#0ea5e9"
         },
         {
           "code": "สร03",
           "name": "เลือกเสรี ม.6",
           "per2wk": 4,
+          "credits": 1.0,
           "semTotal": 40,
-          "budget": 8.0,
-          "color": "#c026d3",
+          "budget": 8,
           "slots": [
             {
               "week": "A",
@@ -475,15 +353,130 @@
               "day": 5,
               "period": 2
             }
-          ]
+          ],
+          "color": "#c026d3"
         },
         {
-          "code": "พ33101",
-          "name": "สุขศึกษาและพลศึกษาเพื่อชีวิต 1",
+          "code": "อ33102",
+          "name": "ภาษาอังกฤษขั้นสูง 2",
+          "per2wk": 4,
+          "credits": 1.0,
+          "semTotal": 40,
+          "budget": 8,
+          "slots": [
+            {
+              "week": "A",
+              "day": 5,
+              "period": 3
+            },
+            {
+              "week": "A",
+              "day": 5,
+              "period": 4
+            },
+            {
+              "week": "B",
+              "day": 5,
+              "period": 3
+            },
+            {
+              "week": "B",
+              "day": 5,
+              "period": 4
+            }
+          ],
+          "color": "#4f46e5"
+        },
+        {
+          "code": "อ33203",
+          "name": "ภาษาอังกฤษอ่าน-เขียน 6",
+          "per2wk": 4,
+          "credits": 1.0,
+          "semTotal": 40,
+          "budget": 8,
+          "slots": [
+            {
+              "week": "A",
+              "day": 3,
+              "period": 1
+            },
+            {
+              "week": "A",
+              "day": 3,
+              "period": 2
+            },
+            {
+              "week": "B",
+              "day": 3,
+              "period": 1
+            },
+            {
+              "week": "B",
+              "day": 3,
+              "period": 2
+            }
+          ],
+          "color": "#0891b2"
+        },
+        {
+          "code": "อ33204",
+          "name": "การเขียนภาษาอังกฤษเชิงวิชาการ 2",
+          "per2wk": 4,
+          "credits": 1.0,
+          "semTotal": 40,
+          "budget": 8,
+          "slots": [
+            {
+              "week": "A",
+              "day": 3,
+              "period": 5
+            },
+            {
+              "week": "A",
+              "day": 3,
+              "period": 6
+            },
+            {
+              "week": "B",
+              "day": 2,
+              "period": 1
+            },
+            {
+              "week": "B",
+              "day": 2,
+              "period": 2
+            }
+          ],
+          "color": "#16a34a"
+        },
+        {
+          "code": "ก601",
+          "name": "แนะแนว6",
           "per2wk": 2,
+          "credits": 0.5,
           "semTotal": 20,
-          "budget": 4.0,
-          "color": "#4f46e5",
+          "budget": 4,
+          "slots": [
+            {
+              "week": "A",
+              "day": 4,
+              "period": 1
+            },
+            {
+              "week": "B",
+              "day": 4,
+              "period": 1
+            }
+          ],
+          "color": "#d97706"
+        },
+        {
+          "code": "พ33102",
+          "name": "สุขศึกษาและพลศึกษาเพื่อชีวิต 2",
+          "per2wk": 2,
+          "credits": 0.5,
+          "semTotal": 20,
+          "budget": 4,
           "slots": [
             {
               "week": "A",
@@ -492,302 +485,199 @@
             },
             {
               "week": "B",
-              "day": 2,
-              "period": 7
+              "day": 4,
+              "period": 2
             }
-          ]
+          ],
+          "color": "#e11d48"
+        },
+        {
+          "code": "ศ33102",
+          "name": "ดุริยางคศิลป์สากล 2",
+          "per2wk": 2,
+          "credits": 0.5,
+          "semTotal": 20,
+          "budget": 4,
+          "slots": [
+            {
+              "week": "A",
+              "day": 2,
+              "period": 5
+            },
+            {
+              "week": "A",
+              "day": 2,
+              "period": 6
+            }
+          ],
+          "color": "#9333ea"
         }
       ]
     },
     "ม.6/2ค": {
       "subjects": [
         {
-          "code": "อ33202",
-          "name": "การเขียนภาษาอังกฤษเชิงวิชาการ 1",
+          "code": "ค33201",
+          "name": "คณิตศาสตร์เพิ่มเติม 5",
           "per2wk": 4,
+          "credits": 1.0,
           "semTotal": 40,
-          "budget": 8.0,
-          "color": "#4f46e5",
+          "budget": 8,
           "slots": [
             {
               "week": "A",
-              "day": 2,
-              "period": 1
+              "day": 1,
+              "period": 3
             },
             {
               "week": "A",
-              "day": 2,
-              "period": 2
+              "day": 1,
+              "period": 4
             },
             {
               "week": "B",
-              "day": 4,
-              "period": 1
+              "day": 1,
+              "period": 3
             },
             {
               "week": "B",
-              "day": 4,
-              "period": 2
+              "day": 1,
+              "period": 4
             }
-          ]
+          ],
+          "color": "#4f46e5"
         },
         {
-          "code": "ค33101",
-          "name": "คณิตศาสตร์ ",
+          "code": "ท30206",
+          "name": "การใช้ภาษาไทย",
           "per2wk": 4,
+          "credits": 1.0,
           "semTotal": 40,
-          "budget": 8.0,
-          "color": "#16a34a",
+          "budget": 8,
           "slots": [
             {
               "week": "A",
               "day": 2,
+              "period": 7
+            },
+            {
+              "week": "A",
+              "day": 3,
               "period": 5
             },
             {
-              "week": "A",
-              "day": 2,
+              "week": "B",
+              "day": 1,
               "period": 6
             },
             {
               "week": "B",
               "day": 2,
-              "period": 1
-            },
-            {
-              "week": "B",
-              "day": 2,
-              "period": 2
+              "period": 3
             }
-          ]
+          ],
+          "color": "#0891b2"
         },
         {
-          "code": "ค33201",
-          "name": "คณิตศาสตร์เพิ่มเติม 5",
+          "code": "ท33102",
+          "name": "พินิจภาษาไทย 6",
           "per2wk": 4,
+          "credits": 1.0,
           "semTotal": 40,
-          "budget": 8.0,
-          "color": "#d97706",
-          "slots": [
-            {
-              "week": "A",
-              "day": 1,
-              "period": 3
-            },
-            {
-              "week": "A",
-              "day": 1,
-              "period": 4
-            },
-            {
-              "week": "B",
-              "day": 1,
-              "period": 3
-            },
-            {
-              "week": "B",
-              "day": 1,
-              "period": 4
-            }
-          ]
-        },
-        {
-          "code": "ศ33101",
-          "name": "ดุริยางคศิลป์สากล 1",
-          "per2wk": 2,
-          "semTotal": 20,
-          "budget": 4.0,
-          "color": "#e11d48",
-          "slots": [
-            {
-              "week": "A",
-              "day": 1,
-              "period": 1
-            },
-            {
-              "week": "A",
-              "day": 1,
-              "period": 2
-            }
-          ]
-        },
-        {
-          "code": "ก601",
-          "name": "แนะแนว6",
-          "per2wk": 2,
-          "semTotal": 20,
-          "budget": 4.0,
-          "color": "#0ea5e9",
+          "budget": 8,
           "slots": [
             {
               "week": "A",
               "day": 2,
-              "period": 8
-            },
-            {
-              "week": "B",
-              "day": 2,
-              "period": 8
-            }
-          ]
-        },
-        {
-          "code": "ส33101",
-          "name": "บูรณาการสังคมศึกษา 5",
-          "per2wk": 4,
-          "semTotal": 40,
-          "budget": 8.0,
-          "color": "#9333ea",
-          "slots": [
-            {
-              "week": "A",
-              "day": 3,
-              "period": 3
-            },
-            {
-              "week": "A",
-              "day": 3,
               "period": 4
-            },
-            {
-              "week": "B",
-              "day": 3,
-              "period": 3
-            },
-            {
-              "week": "B",
-              "day": 3,
-              "period": 4
-            }
-          ]
-        },
-        {
-          "code": "ส33102",
-          "name": "ประวัติศาสตร์สากล",
-          "per2wk": 4,
-          "semTotal": 40,
-          "budget": 8.0,
-          "color": "#0891b2",
-          "slots": [
-            {
-              "week": "A",
-              "day": 2,
-              "period": 3
             },
             {
               "week": "A",
               "day": 4,
-              "period": 5
+              "period": 1
             },
             {
               "week": "B",
-              "day": 2,
-              "period": 4
+              "day": 1,
+              "period": 2
             },
             {
               "week": "B",
-              "day": 4,
+              "day": 3,
               "period": 5
             }
-          ]
+          ],
+          "color": "#16a34a"
         },
         {
-          "code": "ท 33101",
-          "name": "พินิจภาษาไทย 5",
+          "code": "ส33103",
+          "name": "บูรณาการสังคมศึกษา 6",
           "per2wk": 4,
+          "credits": 1.0,
           "semTotal": 40,
-          "budget": 8.0,
-          "color": "#c026d3",
+          "budget": 8,
           "slots": [
             {
               "week": "A",
-              "day": 2,
+              "day": 3,
+              "period": 3
+            },
+            {
+              "week": "A",
+              "day": 3,
               "period": 4
+            },
+            {
+              "week": "B",
+              "day": 3,
+              "period": 3
+            },
+            {
+              "week": "B",
+              "day": 3,
+              "period": 4
+            }
+          ],
+          "color": "#d97706"
+        },
+        {
+          "code": "ส33104",
+          "name": "ประวัติศาสตร์ไทย",
+          "per2wk": 4,
+          "credits": 1.0,
+          "semTotal": 40,
+          "budget": 8,
+          "slots": [
+            {
+              "week": "A",
+              "day": 4,
+              "period": 3
             },
             {
               "week": "A",
               "day": 4,
-              "period": 1
-            },
-            {
-              "week": "B",
-              "day": 2,
-              "period": 3
-            },
-            {
-              "week": "B",
-              "day": 3,
-              "period": 7
-            }
-          ]
-        },
-        {
-          "code": "อ33101",
-          "name": "ภาษาอังกฤษขั้นสูง 1",
-          "per2wk": 4,
-          "semTotal": 40,
-          "budget": 8.0,
-          "color": "#4f46e5",
-          "slots": [
-            {
-              "week": "A",
-              "day": 5,
-              "period": 3
-            },
-            {
-              "week": "A",
-              "day": 5,
               "period": 4
             },
             {
               "week": "B",
-              "day": 5,
+              "day": 4,
               "period": 3
             },
             {
               "week": "B",
-              "day": 5,
+              "day": 4,
               "period": 4
             }
-          ]
-        },
-        {
-          "code": "อ33201",
-          "name": "ภาษาอังกฤษอ่าน-เขียน 5",
-          "per2wk": 4,
-          "semTotal": 40,
-          "budget": 8.0,
-          "color": "#16a34a",
-          "slots": [
-            {
-              "week": "A",
-              "day": 3,
-              "period": 1
-            },
-            {
-              "week": "A",
-              "day": 3,
-              "period": 2
-            },
-            {
-              "week": "B",
-              "day": 3,
-              "period": 1
-            },
-            {
-              "week": "B",
-              "day": 3,
-              "period": 2
-            }
-          ]
+          ],
+          "color": "#e11d48"
         },
         {
           "code": "สร03",
           "name": "เลือกเสรี ม.6",
           "per2wk": 4,
+          "credits": 1.0,
           "semTotal": 40,
-          "budget": 8.0,
-          "color": "#d97706",
+          "budget": 8,
           "slots": [
             {
               "week": "A",
@@ -809,309 +699,239 @@
               "day": 5,
               "period": 2
             }
-          ]
+          ],
+          "color": "#9333ea"
         },
         {
-          "code": "ว30107",
-          "name": "วิทยาศาสตร์กายภาพ (ฟิสิกส์1)",
+          "code": "อ33102",
+          "name": "ภาษาอังกฤษขั้นสูง 2",
           "per2wk": 4,
+          "credits": 1.0,
           "semTotal": 40,
-          "budget": 8.0,
-          "color": "#e11d48",
+          "budget": 8,
           "slots": [
             {
               "week": "A",
-              "day": 4,
+              "day": 5,
               "period": 3
             },
             {
               "week": "A",
-              "day": 4,
+              "day": 5,
               "period": 4
             },
             {
               "week": "B",
-              "day": 3,
-              "period": 5
+              "day": 5,
+              "period": 3
             },
             {
               "week": "B",
-              "day": 3,
-              "period": 6
+              "day": 5,
+              "period": 4
             }
-          ]
+          ],
+          "color": "#0ea5e9"
         },
         {
-          "code": "พ33101",
-          "name": "สุขศึกษาและพลศึกษาเพื่อชีวิต 1",
-          "per2wk": 2,
-          "semTotal": 20,
-          "budget": 4.0,
-          "color": "#0ea5e9",
-          "slots": [
-            {
-              "week": "A",
-              "day": 1,
-              "period": 6
-            },
-            {
-              "week": "B",
-              "day": 1,
-              "period": 6
-            }
-          ]
-        },
-        {
-          "code": "ท 30205",
-          "name": "หลักภาษาไทย",
+          "code": "อ33203",
+          "name": "ภาษาอังกฤษอ่าน-เขียน 6",
           "per2wk": 4,
+          "credits": 1.0,
           "semTotal": 40,
-          "budget": 8.0,
-          "color": "#9333ea",
+          "budget": 8,
           "slots": [
             {
               "week": "A",
-              "day": 1,
-              "period": 5
+              "day": 3,
+              "period": 1
             },
             {
               "week": "A",
               "day": 3,
-              "period": 5
+              "period": 2
             },
             {
               "week": "B",
-              "day": 1,
+              "day": 3,
               "period": 1
             },
             {
               "week": "B",
-              "day": 1,
-              "period": 5
+              "day": 3,
+              "period": 2
             }
-          ]
+          ],
+          "color": "#c026d3"
         },
         {
-          "code": "ส30211",
-          "name": "เหตุการณ์ปัจจุบัน 1",
-          "per2wk": 2,
-          "semTotal": 20,
-          "budget": 4.0,
-          "color": "#0891b2",
+          "code": "อ33204",
+          "name": "การเขียนภาษาอังกฤษเชิงวิชาการ 2",
+          "per2wk": 4,
+          "credits": 1.0,
+          "semTotal": 40,
+          "budget": 8,
           "slots": [
             {
               "week": "A",
-              "day": 3,
-              "period": 6
+              "day": 2,
+              "period": 1
+            },
+            {
+              "week": "A",
+              "day": 2,
+              "period": 2
+            },
+            {
+              "week": "B",
+              "day": 2,
+              "period": 1
+            },
+            {
+              "week": "B",
+              "day": 2,
+              "period": 2
+            }
+          ],
+          "color": "#4f46e5"
+        },
+        {
+          "code": "ก601",
+          "name": "แนะแนว6",
+          "per2wk": 2,
+          "credits": 0.5,
+          "semTotal": 20,
+          "budget": 4,
+          "slots": [
+            {
+              "week": "A",
+              "day": 2,
+              "period": 8
+            },
+            {
+              "week": "B",
+              "day": 2,
+              "period": 8
+            }
+          ],
+          "color": "#0891b2"
+        },
+        {
+          "code": "พ33102",
+          "name": "สุขศึกษาและพลศึกษาเพื่อชีวิต 2",
+          "per2wk": 2,
+          "credits": 0.5,
+          "semTotal": 20,
+          "budget": 4,
+          "slots": [
+            {
+              "week": "A",
+              "day": 1,
+              "period": 8
             },
             {
               "week": "B",
               "day": 1,
+              "period": 5
+            }
+          ],
+          "color": "#16a34a"
+        },
+        {
+          "code": "ว30107",
+          "name": "วิทยาศาสตร์กายภาพ (ฟิสิกส์1)",
+          "per2wk": 2,
+          "credits": 0.5,
+          "semTotal": 20,
+          "budget": 4,
+          "slots": [
+            {
+              "week": "B",
+              "day": 1,
+              "period": 7
+            },
+            {
+              "week": "B",
+              "day": 1,
+              "period": 8
+            }
+          ],
+          "color": "#d97706"
+        },
+        {
+          "code": "ว30108",
+          "name": "วิทยาศาสตร์กายภาพ (ฟิสิกส์2)",
+          "per2wk": 2,
+          "credits": 0.5,
+          "semTotal": 20,
+          "budget": 4,
+          "slots": [
+            {
+              "week": "A",
+              "day": 1,
+              "period": 5
+            },
+            {
+              "week": "A",
+              "day": 1,
+              "period": 6
+            }
+          ],
+          "color": "#e11d48"
+        },
+        {
+          "code": "ศ33102",
+          "name": "ดุริยางคศิลป์สากล 2",
+          "per2wk": 2,
+          "credits": 0.5,
+          "semTotal": 20,
+          "budget": 4,
+          "slots": [
+            {
+              "week": "A",
+              "day": 1,
+              "period": 1
+            },
+            {
+              "week": "A",
+              "day": 1,
               "period": 2
             }
-          ]
+          ],
+          "color": "#9333ea"
+        },
+        {
+          "code": "ส30212",
+          "name": "เหตุการณ์ปัจจุบัน 2",
+          "per2wk": 2,
+          "credits": 0.5,
+          "semTotal": 20,
+          "budget": 4,
+          "slots": [
+            {
+              "week": "A",
+              "day": 2,
+              "period": 3
+            },
+            {
+              "week": "B",
+              "day": 2,
+              "period": 4
+            }
+          ],
+          "color": "#0ea5e9"
         }
       ]
     },
     "ม.6/2จ": {
       "subjects": [
         {
-          "code": "อ33202",
-          "name": "การเขียนภาษาอังกฤษเชิงวิชาการ 1",
-          "per2wk": 4,
-          "semTotal": 40,
-          "budget": 8.0,
-          "color": "#4f46e5",
-          "slots": [
-            {
-              "week": "A",
-              "day": 2,
-              "period": 1
-            },
-            {
-              "week": "A",
-              "day": 2,
-              "period": 2
-            },
-            {
-              "week": "B",
-              "day": 4,
-              "period": 1
-            },
-            {
-              "week": "B",
-              "day": 4,
-              "period": 2
-            }
-          ]
-        },
-        {
-          "code": "ค33102",
-          "name": "คณิตศาสตร์เบื้องต้น 5",
-          "per2wk": 4,
-          "semTotal": 40,
-          "budget": 8.0,
-          "color": "#16a34a",
-          "slots": [
-            {
-              "week": "A",
-              "day": 1,
-              "period": 7
-            },
-            {
-              "week": "A",
-              "day": 4,
-              "period": 2
-            },
-            {
-              "week": "B",
-              "day": 1,
-              "period": 7
-            },
-            {
-              "week": "B",
-              "day": 2,
-              "period": 5
-            }
-          ]
-        },
-        {
-          "code": "ศ33101",
-          "name": "ดุริยางคศิลป์สากล 1",
-          "per2wk": 2,
-          "semTotal": 20,
-          "budget": 4.0,
-          "color": "#d97706",
-          "slots": [
-            {
-              "week": "A",
-              "day": 1,
-              "period": 1
-            },
-            {
-              "week": "A",
-              "day": 1,
-              "period": 2
-            }
-          ]
-        },
-        {
-          "code": "ก601",
-          "name": "แนะแนว6",
-          "per2wk": 2,
-          "semTotal": 20,
-          "budget": 4.0,
-          "color": "#e11d48",
-          "slots": [
-            {
-              "week": "A",
-              "day": 2,
-              "period": 8
-            },
-            {
-              "week": "B",
-              "day": 2,
-              "period": 8
-            }
-          ]
-        },
-        {
-          "code": "ส33101",
-          "name": "บูรณาการสังคมศึกษา 5",
-          "per2wk": 4,
-          "semTotal": 40,
-          "budget": 8.0,
-          "color": "#0ea5e9",
-          "slots": [
-            {
-              "week": "A",
-              "day": 3,
-              "period": 3
-            },
-            {
-              "week": "A",
-              "day": 3,
-              "period": 4
-            },
-            {
-              "week": "B",
-              "day": 3,
-              "period": 3
-            },
-            {
-              "week": "B",
-              "day": 3,
-              "period": 4
-            }
-          ]
-        },
-        {
-          "code": "ส33102",
-          "name": "ประวัติศาสตร์สากล",
-          "per2wk": 4,
-          "semTotal": 40,
-          "budget": 8.0,
-          "color": "#9333ea",
-          "slots": [
-            {
-              "week": "A",
-              "day": 2,
-              "period": 3
-            },
-            {
-              "week": "A",
-              "day": 4,
-              "period": 5
-            },
-            {
-              "week": "B",
-              "day": 2,
-              "period": 4
-            },
-            {
-              "week": "B",
-              "day": 4,
-              "period": 5
-            }
-          ]
-        },
-        {
-          "code": "ท 33101",
-          "name": "พินิจภาษาไทย 5",
-          "per2wk": 4,
-          "semTotal": 40,
-          "budget": 8.0,
-          "color": "#0891b2",
-          "slots": [
-            {
-              "week": "A",
-              "day": 2,
-              "period": 4
-            },
-            {
-              "week": "A",
-              "day": 4,
-              "period": 1
-            },
-            {
-              "week": "B",
-              "day": 2,
-              "period": 3
-            },
-            {
-              "week": "B",
-              "day": 3,
-              "period": 7
-            }
-          ]
-        },
-        {
-          "code": "จ33201 (1)",
-          "name": "ภาษาจีนขั้นสูง 1 (1)",
-          "per2wk": 4,
-          "semTotal": 40,
-          "budget": 8.0,
-          "color": "#c026d3",
+          "code": "จ33203",
+          "name": "ภาษาจีนขั้นสูง 2",
+          "per2wk": 8,
+          "credits": 2.0,
+          "semTotal": 80,
+          "budget": 16,
           "slots": [
             {
               "week": "A",
@@ -1123,26 +943,6 @@
               "day": 1,
               "period": 4
             },
-            {
-              "week": "B",
-              "day": 1,
-              "period": 3
-            },
-            {
-              "week": "B",
-              "day": 1,
-              "period": 4
-            }
-          ]
-        },
-        {
-          "code": "จ33201 (2)",
-          "name": "ภาษาจีนขั้นสูง 1 (2)",
-          "per2wk": 4,
-          "semTotal": 40,
-          "budget": 8.0,
-          "color": "#4f46e5",
-          "slots": [
             {
               "week": "A",
               "day": 2,
@@ -1155,6 +955,16 @@
             },
             {
               "week": "B",
+              "day": 1,
+              "period": 3
+            },
+            {
+              "week": "B",
+              "day": 1,
+              "period": 4
+            },
+            {
+              "week": "B",
               "day": 2,
               "period": 6
             },
@@ -1163,25 +973,181 @@
               "day": 2,
               "period": 7
             }
-          ]
+          ],
+          "color": "#4f46e5"
         },
         {
-          "code": "จ33202",
-          "name": "ภาษาจีนเพื่อการสื่อสาร 5",
+          "code": "ค33104",
+          "name": "คณิตศาสตร์เบื้องต้น 6",
           "per2wk": 4,
+          "credits": 1.0,
           "semTotal": 40,
-          "budget": 8.0,
-          "color": "#16a34a",
+          "budget": 8,
           "slots": [
+            {
+              "week": "A",
+              "day": 1,
+              "period": 7
+            },
+            {
+              "week": "A",
+              "day": 4,
+              "period": 2
+            },
+            {
+              "week": "B",
+              "day": 1,
+              "period": 1
+            },
+            {
+              "week": "B",
+              "day": 2,
+              "period": 5
+            }
+          ],
+          "color": "#0891b2"
+        },
+        {
+          "code": "จ33204",
+          "name": "ภาษาจีนเพื่อการสื่อสาร 6",
+          "per2wk": 4,
+          "credits": 1.0,
+          "semTotal": 40,
+          "budget": 8,
+          "slots": [
+            {
+              "week": "A",
+              "day": 3,
+              "period": 6
+            },
             {
               "week": "A",
               "day": 3,
               "period": 7
             },
             {
+              "week": "B",
+              "day": 4,
+              "period": 1
+            },
+            {
+              "week": "B",
+              "day": 4,
+              "period": 2
+            }
+          ],
+          "color": "#16a34a"
+        },
+        {
+          "code": "ท30206",
+          "name": "การใช้ภาษาไทย",
+          "per2wk": 4,
+          "credits": 1.0,
+          "semTotal": 40,
+          "budget": 8,
+          "slots": [
+            {
+              "week": "A",
+              "day": 2,
+              "period": 7
+            },
+            {
               "week": "A",
               "day": 3,
-              "period": 8
+              "period": 5
+            },
+            {
+              "week": "B",
+              "day": 1,
+              "period": 6
+            },
+            {
+              "week": "B",
+              "day": 2,
+              "period": 3
+            }
+          ],
+          "color": "#d97706"
+        },
+        {
+          "code": "ท33102",
+          "name": "พินิจภาษาไทย 6",
+          "per2wk": 4,
+          "credits": 1.0,
+          "semTotal": 40,
+          "budget": 8,
+          "slots": [
+            {
+              "week": "A",
+              "day": 2,
+              "period": 4
+            },
+            {
+              "week": "A",
+              "day": 4,
+              "period": 1
+            },
+            {
+              "week": "B",
+              "day": 1,
+              "period": 2
+            },
+            {
+              "week": "B",
+              "day": 3,
+              "period": 5
+            }
+          ],
+          "color": "#e11d48"
+        },
+        {
+          "code": "ส33103",
+          "name": "บูรณาการสังคมศึกษา 6",
+          "per2wk": 4,
+          "credits": 1.0,
+          "semTotal": 40,
+          "budget": 8,
+          "slots": [
+            {
+              "week": "A",
+              "day": 3,
+              "period": 3
+            },
+            {
+              "week": "A",
+              "day": 3,
+              "period": 4
+            },
+            {
+              "week": "B",
+              "day": 3,
+              "period": 3
+            },
+            {
+              "week": "B",
+              "day": 3,
+              "period": 4
+            }
+          ],
+          "color": "#9333ea"
+        },
+        {
+          "code": "ส33104",
+          "name": "ประวัติศาสตร์ไทย",
+          "per2wk": 4,
+          "credits": 1.0,
+          "semTotal": 40,
+          "budget": 8,
+          "slots": [
+            {
+              "week": "A",
+              "day": 4,
+              "period": 3
+            },
+            {
+              "week": "A",
+              "day": 4,
+              "period": 4
             },
             {
               "week": "B",
@@ -1193,75 +1159,16 @@
               "day": 4,
               "period": 4
             }
-          ]
-        },
-        {
-          "code": "อ33101",
-          "name": "ภาษาอังกฤษขั้นสูง 1",
-          "per2wk": 4,
-          "semTotal": 40,
-          "budget": 8.0,
-          "color": "#d97706",
-          "slots": [
-            {
-              "week": "A",
-              "day": 5,
-              "period": 3
-            },
-            {
-              "week": "A",
-              "day": 5,
-              "period": 4
-            },
-            {
-              "week": "B",
-              "day": 5,
-              "period": 3
-            },
-            {
-              "week": "B",
-              "day": 5,
-              "period": 4
-            }
-          ]
-        },
-        {
-          "code": "อ33201",
-          "name": "ภาษาอังกฤษอ่าน-เขียน 5",
-          "per2wk": 4,
-          "semTotal": 40,
-          "budget": 8.0,
-          "color": "#e11d48",
-          "slots": [
-            {
-              "week": "A",
-              "day": 3,
-              "period": 1
-            },
-            {
-              "week": "A",
-              "day": 3,
-              "period": 2
-            },
-            {
-              "week": "B",
-              "day": 3,
-              "period": 1
-            },
-            {
-              "week": "B",
-              "day": 3,
-              "period": 2
-            }
-          ]
+          ],
+          "color": "#0ea5e9"
         },
         {
           "code": "สร03",
           "name": "เลือกเสรี ม.6",
           "per2wk": 4,
+          "credits": 1.0,
           "semTotal": 40,
-          "budget": 8.0,
-          "color": "#0ea5e9",
+          "budget": 8,
           "slots": [
             {
               "week": "A",
@@ -1283,329 +1190,239 @@
               "day": 5,
               "period": 2
             }
-          ]
+          ],
+          "color": "#c026d3"
         },
         {
-          "code": "ว30107",
-          "name": "วิทยาศาสตร์กายภาพ (ฟิสิกส์1)",
+          "code": "อ33102",
+          "name": "ภาษาอังกฤษขั้นสูง 2",
           "per2wk": 4,
+          "credits": 1.0,
           "semTotal": 40,
-          "budget": 8.0,
-          "color": "#9333ea",
+          "budget": 8,
           "slots": [
             {
               "week": "A",
-              "day": 4,
+              "day": 5,
               "period": 3
             },
             {
               "week": "A",
-              "day": 4,
+              "day": 5,
               "period": 4
             },
             {
               "week": "B",
-              "day": 3,
-              "period": 5
+              "day": 5,
+              "period": 3
             },
             {
               "week": "B",
-              "day": 3,
-              "period": 6
+              "day": 5,
+              "period": 4
             }
-          ]
+          ],
+          "color": "#4f46e5"
         },
         {
-          "code": "พ33101",
-          "name": "สุขศึกษาและพลศึกษาเพื่อชีวิต 1",
-          "per2wk": 2,
-          "semTotal": 20,
-          "budget": 4.0,
-          "color": "#0891b2",
-          "slots": [
-            {
-              "week": "A",
-              "day": 1,
-              "period": 6
-            },
-            {
-              "week": "B",
-              "day": 1,
-              "period": 6
-            }
-          ]
-        },
-        {
-          "code": "ท 30205",
-          "name": "หลักภาษาไทย",
+          "code": "อ33203",
+          "name": "ภาษาอังกฤษอ่าน-เขียน 6",
           "per2wk": 4,
+          "credits": 1.0,
           "semTotal": 40,
-          "budget": 8.0,
-          "color": "#c026d3",
+          "budget": 8,
           "slots": [
             {
               "week": "A",
-              "day": 1,
-              "period": 5
+              "day": 3,
+              "period": 1
             },
             {
               "week": "A",
               "day": 3,
-              "period": 5
+              "period": 2
             },
             {
               "week": "B",
-              "day": 1,
+              "day": 3,
               "period": 1
             },
             {
               "week": "B",
-              "day": 1,
-              "period": 5
+              "day": 3,
+              "period": 2
             }
-          ]
+          ],
+          "color": "#0891b2"
         },
         {
-          "code": "ส30211",
-          "name": "เหตุการณ์ปัจจุบัน 1",
-          "per2wk": 2,
-          "semTotal": 20,
-          "budget": 4.0,
-          "color": "#4f46e5",
+          "code": "อ33204",
+          "name": "การเขียนภาษาอังกฤษเชิงวิชาการ 2",
+          "per2wk": 4,
+          "credits": 1.0,
+          "semTotal": 40,
+          "budget": 8,
           "slots": [
             {
               "week": "A",
-              "day": 3,
-              "period": 6
+              "day": 2,
+              "period": 1
+            },
+            {
+              "week": "A",
+              "day": 2,
+              "period": 2
+            },
+            {
+              "week": "B",
+              "day": 2,
+              "period": 1
+            },
+            {
+              "week": "B",
+              "day": 2,
+              "period": 2
+            }
+          ],
+          "color": "#16a34a"
+        },
+        {
+          "code": "ก601",
+          "name": "แนะแนว6",
+          "per2wk": 2,
+          "credits": 0.5,
+          "semTotal": 20,
+          "budget": 4,
+          "slots": [
+            {
+              "week": "A",
+              "day": 2,
+              "period": 8
+            },
+            {
+              "week": "B",
+              "day": 2,
+              "period": 8
+            }
+          ],
+          "color": "#d97706"
+        },
+        {
+          "code": "พ33102",
+          "name": "สุขศึกษาและพลศึกษาเพื่อชีวิต 2",
+          "per2wk": 2,
+          "credits": 0.5,
+          "semTotal": 20,
+          "budget": 4,
+          "slots": [
+            {
+              "week": "A",
+              "day": 1,
+              "period": 8
             },
             {
               "week": "B",
               "day": 1,
+              "period": 5
+            }
+          ],
+          "color": "#e11d48"
+        },
+        {
+          "code": "ว30107",
+          "name": "วิทยาศาสตร์กายภาพ (ฟิสิกส์1)",
+          "per2wk": 2,
+          "credits": 0.5,
+          "semTotal": 20,
+          "budget": 4,
+          "slots": [
+            {
+              "week": "B",
+              "day": 1,
+              "period": 7
+            },
+            {
+              "week": "B",
+              "day": 1,
+              "period": 8
+            }
+          ],
+          "color": "#9333ea"
+        },
+        {
+          "code": "ว30108",
+          "name": "วิทยาศาสตร์กายภาพ (ฟิสิกส์2)",
+          "per2wk": 2,
+          "credits": 0.5,
+          "semTotal": 20,
+          "budget": 4,
+          "slots": [
+            {
+              "week": "A",
+              "day": 1,
+              "period": 5
+            },
+            {
+              "week": "A",
+              "day": 1,
+              "period": 6
+            }
+          ],
+          "color": "#0ea5e9"
+        },
+        {
+          "code": "ศ33102",
+          "name": "ดุริยางคศิลป์สากล 2",
+          "per2wk": 2,
+          "credits": 0.5,
+          "semTotal": 20,
+          "budget": 4,
+          "slots": [
+            {
+              "week": "A",
+              "day": 1,
+              "period": 1
+            },
+            {
+              "week": "A",
+              "day": 1,
               "period": 2
             }
-          ]
+          ],
+          "color": "#c026d3"
+        },
+        {
+          "code": "ส30212",
+          "name": "เหตุการณ์ปัจจุบัน 2",
+          "per2wk": 2,
+          "credits": 0.5,
+          "semTotal": 20,
+          "budget": 4,
+          "slots": [
+            {
+              "week": "A",
+              "day": 2,
+              "period": 3
+            },
+            {
+              "week": "B",
+              "day": 2,
+              "period": 4
+            }
+          ],
+          "color": "#4f46e5"
         }
       ]
     },
     "ม.6/2ย": {
       "subjects": [
         {
-          "code": "อ33202",
-          "name": "การเขียนภาษาอังกฤษเชิงวิชาการ 1",
-          "per2wk": 4,
-          "semTotal": 40,
-          "budget": 8.0,
-          "color": "#4f46e5",
-          "slots": [
-            {
-              "week": "A",
-              "day": 2,
-              "period": 1
-            },
-            {
-              "week": "A",
-              "day": 2,
-              "period": 2
-            },
-            {
-              "week": "B",
-              "day": 4,
-              "period": 1
-            },
-            {
-              "week": "B",
-              "day": 4,
-              "period": 2
-            }
-          ]
-        },
-        {
-          "code": "ค33102",
-          "name": "คณิตศาสตร์เบื้องต้น 5",
-          "per2wk": 4,
-          "semTotal": 40,
-          "budget": 8.0,
-          "color": "#16a34a",
-          "slots": [
-            {
-              "week": "A",
-              "day": 1,
-              "period": 7
-            },
-            {
-              "week": "A",
-              "day": 4,
-              "period": 2
-            },
-            {
-              "week": "B",
-              "day": 1,
-              "period": 7
-            },
-            {
-              "week": "B",
-              "day": 2,
-              "period": 5
-            }
-          ]
-        },
-        {
-          "code": "ศ33101",
-          "name": "ดุริยางคศิลป์สากล 1",
-          "per2wk": 2,
-          "semTotal": 20,
-          "budget": 4.0,
-          "color": "#d97706",
-          "slots": [
-            {
-              "week": "A",
-              "day": 1,
-              "period": 1
-            },
-            {
-              "week": "A",
-              "day": 1,
-              "period": 2
-            }
-          ]
-        },
-        {
-          "code": "ก601",
-          "name": "แนะแนว6",
-          "per2wk": 2,
-          "semTotal": 20,
-          "budget": 4.0,
-          "color": "#e11d48",
-          "slots": [
-            {
-              "week": "A",
-              "day": 2,
-              "period": 8
-            },
-            {
-              "week": "B",
-              "day": 2,
-              "period": 8
-            }
-          ]
-        },
-        {
-          "code": "ส33101",
-          "name": "บูรณาการสังคมศึกษา 5",
-          "per2wk": 4,
-          "semTotal": 40,
-          "budget": 8.0,
-          "color": "#0ea5e9",
-          "slots": [
-            {
-              "week": "A",
-              "day": 3,
-              "period": 3
-            },
-            {
-              "week": "A",
-              "day": 3,
-              "period": 4
-            },
-            {
-              "week": "B",
-              "day": 3,
-              "period": 3
-            },
-            {
-              "week": "B",
-              "day": 3,
-              "period": 4
-            }
-          ]
-        },
-        {
-          "code": "ส33102",
-          "name": "ประวัติศาสตร์สากล",
-          "per2wk": 4,
-          "semTotal": 40,
-          "budget": 8.0,
-          "color": "#9333ea",
-          "slots": [
-            {
-              "week": "A",
-              "day": 2,
-              "period": 3
-            },
-            {
-              "week": "A",
-              "day": 4,
-              "period": 5
-            },
-            {
-              "week": "B",
-              "day": 2,
-              "period": 4
-            },
-            {
-              "week": "B",
-              "day": 4,
-              "period": 5
-            }
-          ]
-        },
-        {
-          "code": "ท 33101",
-          "name": "พินิจภาษาไทย 5",
-          "per2wk": 4,
-          "semTotal": 40,
-          "budget": 8.0,
-          "color": "#0891b2",
-          "slots": [
-            {
-              "week": "A",
-              "day": 2,
-              "period": 4
-            },
-            {
-              "week": "A",
-              "day": 4,
-              "period": 1
-            },
-            {
-              "week": "B",
-              "day": 2,
-              "period": 3
-            },
-            {
-              "week": "B",
-              "day": 3,
-              "period": 7
-            }
-          ]
-        },
-        {
-          "code": "ย33201(1)",
-          "name": "ภาษาเยอรมันขั้นสูง 1 (1)",
-          "per2wk": 2,
-          "semTotal": 20,
-          "budget": 4.0,
-          "color": "#c026d3",
-          "slots": [
-            {
-              "week": "B",
-              "day": 1,
-              "period": 3
-            },
-            {
-              "week": "B",
-              "day": 1,
-              "period": 4
-            }
-          ]
-        },
-        {
-          "code": "ย33201(2)",
-          "name": "ภาษาเยอรมันขั้นสูง 1 (2)",
-          "per2wk": 6,
-          "semTotal": 60,
-          "budget": 12.0,
-          "color": "#4f46e5",
+          "code": "ย33203",
+          "name": "ภาษาเยอรมันขั้นสูง 2",
+          "per2wk": 8,
+          "credits": 2.0,
+          "semTotal": 80,
+          "budget": 16,
           "slots": [
             {
               "week": "A",
@@ -1629,6 +1446,16 @@
             },
             {
               "week": "B",
+              "day": 1,
+              "period": 3
+            },
+            {
+              "week": "B",
+              "day": 1,
+              "period": 4
+            },
+            {
+              "week": "B",
               "day": 2,
               "period": 6
             },
@@ -1637,15 +1464,47 @@
               "day": 2,
               "period": 7
             }
-          ]
+          ],
+          "color": "#4f46e5"
         },
         {
-          "code": "ย33202",
-          "name": "ภาษาเยอรมันเพื่อการสื่อสาร 5",
+          "code": "ค33104",
+          "name": "คณิตศาสตร์เบื้องต้น 6",
           "per2wk": 4,
+          "credits": 1.0,
           "semTotal": 40,
-          "budget": 8.0,
-          "color": "#16a34a",
+          "budget": 8,
+          "slots": [
+            {
+              "week": "A",
+              "day": 1,
+              "period": 7
+            },
+            {
+              "week": "A",
+              "day": 4,
+              "period": 2
+            },
+            {
+              "week": "B",
+              "day": 1,
+              "period": 1
+            },
+            {
+              "week": "B",
+              "day": 2,
+              "period": 5
+            }
+          ],
+          "color": "#0891b2"
+        },
+        {
+          "code": "ท30206",
+          "name": "การใช้ภาษาไทย",
+          "per2wk": 4,
+          "credits": 1.0,
+          "semTotal": 40,
+          "budget": 8,
           "slots": [
             {
               "week": "A",
@@ -1653,89 +1512,154 @@
               "period": 7
             },
             {
+              "week": "A",
+              "day": 3,
+              "period": 5
+            },
+            {
               "week": "B",
-              "day": 2,
-              "period": 1
+              "day": 1,
+              "period": 6
             },
             {
               "week": "B",
               "day": 2,
+              "period": 3
+            }
+          ],
+          "color": "#16a34a"
+        },
+        {
+          "code": "ท33102",
+          "name": "พินิจภาษาไทย 6",
+          "per2wk": 4,
+          "credits": 1.0,
+          "semTotal": 40,
+          "budget": 8,
+          "slots": [
+            {
+              "week": "A",
+              "day": 2,
+              "period": 4
+            },
+            {
+              "week": "A",
+              "day": 4,
+              "period": 1
+            },
+            {
+              "week": "B",
+              "day": 1,
               "period": 2
             },
             {
               "week": "B",
               "day": 3,
-              "period": 8
+              "period": 5
             }
-          ]
+          ],
+          "color": "#d97706"
         },
         {
-          "code": "อ33101",
-          "name": "ภาษาอังกฤษขั้นสูง 1",
+          "code": "ย33204",
+          "name": "ภาษาเยอรมันเพื่อการสื่อสาร 6",
           "per2wk": 4,
+          "credits": 1.0,
           "semTotal": 40,
-          "budget": 8.0,
-          "color": "#d97706",
+          "budget": 8,
           "slots": [
             {
               "week": "A",
+              "day": 3,
+              "period": 6
+            },
+            {
+              "week": "A",
               "day": 5,
+              "period": 5
+            },
+            {
+              "week": "B",
+              "day": 3,
+              "period": 6
+            },
+            {
+              "week": "B",
+              "day": 3,
+              "period": 7
+            }
+          ],
+          "color": "#e11d48"
+        },
+        {
+          "code": "ส33103",
+          "name": "บูรณาการสังคมศึกษา 6",
+          "per2wk": 4,
+          "credits": 1.0,
+          "semTotal": 40,
+          "budget": 8,
+          "slots": [
+            {
+              "week": "A",
+              "day": 3,
               "period": 3
             },
             {
               "week": "A",
-              "day": 5,
+              "day": 3,
               "period": 4
             },
             {
               "week": "B",
-              "day": 5,
+              "day": 3,
               "period": 3
             },
             {
               "week": "B",
-              "day": 5,
+              "day": 3,
               "period": 4
             }
-          ]
+          ],
+          "color": "#9333ea"
         },
         {
-          "code": "อ33201",
-          "name": "ภาษาอังกฤษอ่าน-เขียน 5",
+          "code": "ส33104",
+          "name": "ประวัติศาสตร์ไทย",
           "per2wk": 4,
+          "credits": 1.0,
           "semTotal": 40,
-          "budget": 8.0,
-          "color": "#e11d48",
+          "budget": 8,
           "slots": [
             {
               "week": "A",
-              "day": 3,
-              "period": 1
+              "day": 4,
+              "period": 3
             },
             {
               "week": "A",
-              "day": 3,
-              "period": 2
+              "day": 4,
+              "period": 4
             },
             {
               "week": "B",
-              "day": 3,
-              "period": 1
+              "day": 4,
+              "period": 3
             },
             {
               "week": "B",
-              "day": 3,
-              "period": 2
+              "day": 4,
+              "period": 4
             }
-          ]
+          ],
+          "color": "#0ea5e9"
         },
         {
           "code": "สร03",
           "name": "เลือกเสรี ม.6",
           "per2wk": 4,
+          "credits": 1.0,
           "semTotal": 40,
-          "budget": 8.0,
-          "color": "#0ea5e9",
+          "budget": 8,
           "slots": [
             {
               "week": "A",
@@ -1757,309 +1681,321 @@
               "day": 5,
               "period": 2
             }
-          ]
+          ],
+          "color": "#c026d3"
         },
         {
-          "code": "ว30107",
-          "name": "วิทยาศาสตร์กายภาพ (ฟิสิกส์1)",
+          "code": "อ33102",
+          "name": "ภาษาอังกฤษขั้นสูง 2",
           "per2wk": 4,
+          "credits": 1.0,
           "semTotal": 40,
-          "budget": 8.0,
-          "color": "#9333ea",
+          "budget": 8,
           "slots": [
             {
               "week": "A",
-              "day": 4,
+              "day": 5,
               "period": 3
             },
             {
               "week": "A",
-              "day": 4,
+              "day": 5,
               "period": 4
             },
             {
               "week": "B",
-              "day": 3,
-              "period": 5
+              "day": 5,
+              "period": 3
             },
             {
               "week": "B",
-              "day": 3,
-              "period": 6
+              "day": 5,
+              "period": 4
             }
-          ]
+          ],
+          "color": "#4f46e5"
         },
         {
-          "code": "พ33101",
-          "name": "สุขศึกษาและพลศึกษาเพื่อชีวิต 1",
-          "per2wk": 2,
-          "semTotal": 20,
-          "budget": 4.0,
-          "color": "#0891b2",
-          "slots": [
-            {
-              "week": "A",
-              "day": 1,
-              "period": 6
-            },
-            {
-              "week": "B",
-              "day": 1,
-              "period": 6
-            }
-          ]
-        },
-        {
-          "code": "ท 30205",
-          "name": "หลักภาษาไทย",
+          "code": "อ33203",
+          "name": "ภาษาอังกฤษอ่าน-เขียน 6",
           "per2wk": 4,
+          "credits": 1.0,
           "semTotal": 40,
-          "budget": 8.0,
-          "color": "#c026d3",
+          "budget": 8,
           "slots": [
             {
               "week": "A",
-              "day": 1,
-              "period": 5
+              "day": 3,
+              "period": 1
             },
             {
               "week": "A",
               "day": 3,
-              "period": 5
+              "period": 2
             },
             {
               "week": "B",
-              "day": 1,
+              "day": 3,
               "period": 1
             },
             {
               "week": "B",
-              "day": 1,
-              "period": 5
+              "day": 3,
+              "period": 2
             }
-          ]
+          ],
+          "color": "#0891b2"
         },
         {
-          "code": "ส30211",
-          "name": "เหตุการณ์ปัจจุบัน 1",
-          "per2wk": 2,
-          "semTotal": 20,
-          "budget": 4.0,
-          "color": "#4f46e5",
+          "code": "อ33204",
+          "name": "การเขียนภาษาอังกฤษเชิงวิชาการ 2",
+          "per2wk": 4,
+          "credits": 1.0,
+          "semTotal": 40,
+          "budget": 8,
           "slots": [
             {
               "week": "A",
-              "day": 3,
-              "period": 6
+              "day": 2,
+              "period": 1
+            },
+            {
+              "week": "A",
+              "day": 2,
+              "period": 2
+            },
+            {
+              "week": "B",
+              "day": 2,
+              "period": 1
+            },
+            {
+              "week": "B",
+              "day": 2,
+              "period": 2
+            }
+          ],
+          "color": "#16a34a"
+        },
+        {
+          "code": "ก601",
+          "name": "แนะแนว6",
+          "per2wk": 2,
+          "credits": 0.5,
+          "semTotal": 20,
+          "budget": 4,
+          "slots": [
+            {
+              "week": "A",
+              "day": 2,
+              "period": 8
+            },
+            {
+              "week": "B",
+              "day": 2,
+              "period": 8
+            }
+          ],
+          "color": "#d97706"
+        },
+        {
+          "code": "พ33102",
+          "name": "สุขศึกษาและพลศึกษาเพื่อชีวิต 2",
+          "per2wk": 2,
+          "credits": 0.5,
+          "semTotal": 20,
+          "budget": 4,
+          "slots": [
+            {
+              "week": "A",
+              "day": 1,
+              "period": 8
             },
             {
               "week": "B",
               "day": 1,
+              "period": 5
+            }
+          ],
+          "color": "#e11d48"
+        },
+        {
+          "code": "ว30107",
+          "name": "วิทยาศาสตร์กายภาพ (ฟิสิกส์1)",
+          "per2wk": 2,
+          "credits": 0.5,
+          "semTotal": 20,
+          "budget": 4,
+          "slots": [
+            {
+              "week": "B",
+              "day": 1,
+              "period": 7
+            },
+            {
+              "week": "B",
+              "day": 1,
+              "period": 8
+            }
+          ],
+          "color": "#9333ea"
+        },
+        {
+          "code": "ว30108",
+          "name": "วิทยาศาสตร์กายภาพ (ฟิสิกส์2)",
+          "per2wk": 2,
+          "credits": 0.5,
+          "semTotal": 20,
+          "budget": 4,
+          "slots": [
+            {
+              "week": "A",
+              "day": 1,
+              "period": 5
+            },
+            {
+              "week": "A",
+              "day": 1,
+              "period": 6
+            }
+          ],
+          "color": "#0ea5e9"
+        },
+        {
+          "code": "ศ33102",
+          "name": "ดุริยางคศิลป์สากล 2",
+          "per2wk": 2,
+          "credits": 0.5,
+          "semTotal": 20,
+          "budget": 4,
+          "slots": [
+            {
+              "week": "A",
+              "day": 1,
+              "period": 1
+            },
+            {
+              "week": "A",
+              "day": 1,
               "period": 2
             }
-          ]
+          ],
+          "color": "#c026d3"
+        },
+        {
+          "code": "ส30212",
+          "name": "เหตุการณ์ปัจจุบัน 2",
+          "per2wk": 2,
+          "credits": 0.5,
+          "semTotal": 20,
+          "budget": 4,
+          "slots": [
+            {
+              "week": "A",
+              "day": 2,
+              "period": 3
+            },
+            {
+              "week": "B",
+              "day": 2,
+              "period": 4
+            }
+          ],
+          "color": "#4f46e5"
         }
       ]
     },
     "ม.6/3ญ": {
       "subjects": [
         {
-          "code": "อ33202",
-          "name": "การเขียนภาษาอังกฤษเชิงวิชาการ 1",
-          "per2wk": 4,
-          "semTotal": 40,
-          "budget": 8.0,
-          "color": "#4f46e5",
-          "slots": [
-            {
-              "week": "A",
-              "day": 1,
-              "period": 3
-            },
-            {
-              "week": "A",
-              "day": 1,
-              "period": 4
-            },
-            {
-              "week": "B",
-              "day": 3,
-              "period": 6
-            },
-            {
-              "week": "B",
-              "day": 3,
-              "period": 7
-            }
-          ]
-        },
-        {
-          "code": "ค33102",
-          "name": "คณิตศาสตร์เบื้องต้น 5",
-          "per2wk": 4,
-          "semTotal": 40,
-          "budget": 8.0,
-          "color": "#16a34a",
-          "slots": [
-            {
-              "week": "A",
-              "day": 1,
-              "period": 1
-            },
-            {
-              "week": "A",
-              "day": 2,
-              "period": 7
-            },
-            {
-              "week": "B",
-              "day": 2,
-              "period": 7
-            },
-            {
-              "week": "B",
-              "day": 4,
-              "period": 5
-            }
-          ]
-        },
-        {
-          "code": "ศ33101",
-          "name": "ดุริยางคศิลป์สากล 1",
-          "per2wk": 2,
-          "semTotal": 20,
-          "budget": 4.0,
-          "color": "#d97706",
-          "slots": [
-            {
-              "week": "A",
-              "day": 3,
-              "period": 6
-            },
-            {
-              "week": "A",
-              "day": 3,
-              "period": 7
-            }
-          ]
-        },
-        {
-          "code": "ก601",
-          "name": "แนะแนว6",
-          "per2wk": 2,
-          "semTotal": 20,
-          "budget": 4.0,
-          "color": "#e11d48",
-          "slots": [
-            {
-              "week": "A",
-              "day": 2,
-              "period": 8
-            },
-            {
-              "week": "B",
-              "day": 2,
-              "period": 8
-            }
-          ]
-        },
-        {
-          "code": "ส33101",
-          "name": "บูรณาการสังคมศึกษา 5",
-          "per2wk": 4,
-          "semTotal": 40,
-          "budget": 8.0,
-          "color": "#0ea5e9",
-          "slots": [
-            {
-              "week": "A",
-              "day": 3,
-              "period": 3
-            },
-            {
-              "week": "A",
-              "day": 3,
-              "period": 4
-            },
-            {
-              "week": "B",
-              "day": 3,
-              "period": 3
-            },
-            {
-              "week": "B",
-              "day": 3,
-              "period": 4
-            }
-          ]
-        },
-        {
-          "code": "ส33102",
-          "name": "ประวัติศาสตร์สากล",
-          "per2wk": 4,
-          "semTotal": 40,
-          "budget": 8.0,
-          "color": "#9333ea",
-          "slots": [
-            {
-              "week": "A",
-              "day": 2,
-              "period": 4
-            },
-            {
-              "week": "A",
-              "day": 4,
-              "period": 4
-            },
-            {
-              "week": "B",
-              "day": 2,
-              "period": 3
-            },
-            {
-              "week": "B",
-              "day": 4,
-              "period": 3
-            }
-          ]
-        },
-        {
-          "code": "ท 33101",
-          "name": "พินิจภาษาไทย 5",
-          "per2wk": 4,
-          "semTotal": 40,
-          "budget": 8.0,
-          "color": "#0891b2",
-          "slots": [
-            {
-              "week": "A",
-              "day": 2,
-              "period": 3
-            },
-            {
-              "week": "A",
-              "day": 4,
-              "period": 3
-            },
-            {
-              "week": "B",
-              "day": 2,
-              "period": 4
-            },
-            {
-              "week": "B",
-              "day": 3,
-              "period": 5
-            }
-          ]
-        },
-        {
-          "code": "ญ33201",
-          "name": "ภาษาญี่ปุ่นขั้นสูง 1",
+          "code": "ญ33203",
+          "name": "ภาษาญี่ปุ่นขั้นสูง 2",
           "per2wk": 8,
+          "credits": 2.0,
           "semTotal": 80,
-          "budget": 16.0,
-          "color": "#c026d3",
+          "budget": 16,
+          "slots": [
+            {
+              "week": "A",
+              "day": 3,
+              "period": 5
+            },
+            {
+              "week": "A",
+              "day": 3,
+              "period": 6
+            },
+            {
+              "week": "A",
+              "day": 4,
+              "period": 1
+            },
+            {
+              "week": "A",
+              "day": 4,
+              "period": 2
+            },
+            {
+              "week": "B",
+              "day": 3,
+              "period": 5
+            },
+            {
+              "week": "B",
+              "day": 3,
+              "period": 6
+            },
+            {
+              "week": "B",
+              "day": 4,
+              "period": 1
+            },
+            {
+              "week": "B",
+              "day": 4,
+              "period": 2
+            }
+          ],
+          "color": "#4f46e5"
+        },
+        {
+          "code": "ค33104",
+          "name": "คณิตศาสตร์เบื้องต้น 6",
+          "per2wk": 4,
+          "credits": 1.0,
+          "semTotal": 40,
+          "budget": 8,
+          "slots": [
+            {
+              "week": "A",
+              "day": 1,
+              "period": 1
+            },
+            {
+              "week": "A",
+              "day": 2,
+              "period": 7
+            },
+            {
+              "week": "B",
+              "day": 1,
+              "period": 2
+            },
+            {
+              "week": "B",
+              "day": 2,
+              "period": 7
+            }
+          ],
+          "color": "#0891b2"
+        },
+        {
+          "code": "ญ33204",
+          "name": "ภาษาญี่ปุ่นเพื่อการสื่อสาร 6",
+          "per2wk": 4,
+          "credits": 1.0,
+          "semTotal": 40,
+          "budget": 8,
           "slots": [
             {
               "week": "A",
@@ -2072,16 +2008,6 @@
               "period": 2
             },
             {
-              "week": "A",
-              "day": 4,
-              "period": 1
-            },
-            {
-              "week": "A",
-              "day": 4,
-              "period": 2
-            },
-            {
               "week": "B",
               "day": 2,
               "period": 1
@@ -2089,27 +2015,49 @@
             {
               "week": "B",
               "day": 2,
-              "period": 2
-            },
-            {
-              "week": "B",
-              "day": 4,
-              "period": 1
-            },
-            {
-              "week": "B",
-              "day": 4,
               "period": 2
             }
-          ]
+          ],
+          "color": "#16a34a"
         },
         {
-          "code": "ญ33202 (1)",
-          "name": "ภาษาญี่ปุ่นเพื่อการสื่อสาร 5 (1)",
+          "code": "ท30206",
+          "name": "การใช้ภาษาไทย",
           "per2wk": 4,
+          "credits": 1.0,
           "semTotal": 40,
-          "budget": 8.0,
-          "color": "#4f46e5",
+          "budget": 8,
+          "slots": [
+            {
+              "week": "A",
+              "day": 1,
+              "period": 6
+            },
+            {
+              "week": "A",
+              "day": 3,
+              "period": 7
+            },
+            {
+              "week": "B",
+              "day": 1,
+              "period": 7
+            },
+            {
+              "week": "B",
+              "day": 2,
+              "period": 6
+            }
+          ],
+          "color": "#d97706"
+        },
+        {
+          "code": "ท33102",
+          "name": "พินิจภาษาไทย 6",
+          "per2wk": 4,
+          "credits": 1.0,
+          "semTotal": 40,
+          "budget": 8,
           "slots": [
             {
               "week": "A",
@@ -2118,88 +2066,91 @@
             },
             {
               "week": "A",
-              "day": 2,
-              "period": 6
-            },
-            {
-              "week": "B",
-              "day": 2,
+              "day": 4,
               "period": 5
             },
             {
               "week": "B",
-              "day": 2,
-              "period": 6
-            }
-          ]
-        },
-        {
-          "code": "อ33101",
-          "name": "ภาษาอังกฤษขั้นสูง 1",
-          "per2wk": 4,
-          "semTotal": 40,
-          "budget": 8.0,
-          "color": "#16a34a",
-          "slots": [
-            {
-              "week": "A",
-              "day": 5,
-              "period": 3
-            },
-            {
-              "week": "A",
-              "day": 5,
-              "period": 4
-            },
-            {
-              "week": "B",
-              "day": 5,
-              "period": 3
-            },
-            {
-              "week": "B",
-              "day": 5,
-              "period": 4
-            }
-          ]
-        },
-        {
-          "code": "อ33201",
-          "name": "ภาษาอังกฤษอ่าน-เขียน 5",
-          "per2wk": 4,
-          "semTotal": 40,
-          "budget": 8.0,
-          "color": "#d97706",
-          "slots": [
-            {
-              "week": "A",
-              "day": 3,
-              "period": 1
-            },
-            {
-              "week": "A",
-              "day": 3,
-              "period": 2
-            },
-            {
-              "week": "B",
-              "day": 3,
+              "day": 1,
               "period": 1
             },
             {
               "week": "B",
               "day": 3,
-              "period": 2
+              "period": 7
             }
-          ]
+          ],
+          "color": "#e11d48"
+        },
+        {
+          "code": "ส33103",
+          "name": "บูรณาการสังคมศึกษา 6",
+          "per2wk": 4,
+          "credits": 1.0,
+          "semTotal": 40,
+          "budget": 8,
+          "slots": [
+            {
+              "week": "A",
+              "day": 3,
+              "period": 3
+            },
+            {
+              "week": "A",
+              "day": 3,
+              "period": 4
+            },
+            {
+              "week": "B",
+              "day": 3,
+              "period": 3
+            },
+            {
+              "week": "B",
+              "day": 3,
+              "period": 4
+            }
+          ],
+          "color": "#9333ea"
+        },
+        {
+          "code": "ส33104",
+          "name": "ประวัติศาสตร์ไทย",
+          "per2wk": 4,
+          "credits": 1.0,
+          "semTotal": 40,
+          "budget": 8,
+          "slots": [
+            {
+              "week": "A",
+              "day": 4,
+              "period": 3
+            },
+            {
+              "week": "A",
+              "day": 4,
+              "period": 4
+            },
+            {
+              "week": "B",
+              "day": 4,
+              "period": 3
+            },
+            {
+              "week": "B",
+              "day": 4,
+              "period": 4
+            }
+          ],
+          "color": "#0ea5e9"
         },
         {
           "code": "สร03",
           "name": "เลือกเสรี ม.6",
           "per2wk": 4,
+          "credits": 1.0,
           "semTotal": 40,
-          "budget": 8.0,
-          "color": "#e11d48",
+          "budget": 8,
           "slots": [
             {
               "week": "A",
@@ -2221,309 +2172,239 @@
               "day": 5,
               "period": 2
             }
-          ]
+          ],
+          "color": "#c026d3"
         },
         {
-          "code": "ว30107",
-          "name": "วิทยาศาสตร์กายภาพ (ฟิสิกส์1)",
+          "code": "อ33102",
+          "name": "ภาษาอังกฤษขั้นสูง 2",
           "per2wk": 4,
+          "credits": 1.0,
           "semTotal": 40,
-          "budget": 8.0,
-          "color": "#0ea5e9",
+          "budget": 8,
           "slots": [
             {
               "week": "A",
-              "day": 1,
-              "period": 5
+              "day": 5,
+              "period": 3
             },
             {
               "week": "A",
-              "day": 1,
-              "period": 6
+              "day": 5,
+              "period": 4
             },
             {
               "week": "B",
-              "day": 1,
-              "period": 5
+              "day": 5,
+              "period": 3
             },
             {
               "week": "B",
-              "day": 1,
-              "period": 6
-            }
-          ]
-        },
-        {
-          "code": "พ33101",
-          "name": "สุขศึกษาและพลศึกษาเพื่อชีวิต 1",
-          "per2wk": 2,
-          "semTotal": 20,
-          "budget": 4.0,
-          "color": "#9333ea",
-          "slots": [
-            {
-              "week": "A",
-              "day": 1,
-              "period": 7
-            },
-            {
-              "week": "B",
-              "day": 1,
-              "period": 7
-            }
-          ]
-        },
-        {
-          "code": "ท 30205",
-          "name": "หลักภาษาไทย",
-          "per2wk": 4,
-          "semTotal": 40,
-          "budget": 8.0,
-          "color": "#0891b2",
-          "slots": [
-            {
-              "week": "A",
-              "day": 1,
-              "period": 2
-            },
-            {
-              "week": "A",
-              "day": 4,
-              "period": 5
-            },
-            {
-              "week": "B",
-              "day": 1,
-              "period": 2
-            },
-            {
-              "week": "B",
-              "day": 4,
+              "day": 5,
               "period": 4
             }
-          ]
+          ],
+          "color": "#4f46e5"
         },
         {
-          "code": "ส30211",
-          "name": "เหตุการณ์ปัจจุบัน 1",
-          "per2wk": 2,
-          "semTotal": 20,
-          "budget": 4.0,
-          "color": "#c026d3",
+          "code": "อ33203",
+          "name": "ภาษาอังกฤษอ่าน-เขียน 6",
+          "per2wk": 4,
+          "credits": 1.0,
+          "semTotal": 40,
+          "budget": 8,
           "slots": [
             {
               "week": "A",
               "day": 3,
+              "period": 1
+            },
+            {
+              "week": "A",
+              "day": 3,
+              "period": 2
+            },
+            {
+              "week": "B",
+              "day": 3,
+              "period": 1
+            },
+            {
+              "week": "B",
+              "day": 3,
+              "period": 2
+            }
+          ],
+          "color": "#0891b2"
+        },
+        {
+          "code": "อ33204",
+          "name": "การเขียนภาษาอังกฤษเชิงวิชาการ 2",
+          "per2wk": 4,
+          "credits": 1.0,
+          "semTotal": 40,
+          "budget": 8,
+          "slots": [
+            {
+              "week": "A",
+              "day": 1,
+              "period": 3
+            },
+            {
+              "week": "A",
+              "day": 1,
+              "period": 4
+            },
+            {
+              "week": "B",
+              "day": 2,
+              "period": 3
+            },
+            {
+              "week": "B",
+              "day": 2,
+              "period": 4
+            }
+          ],
+          "color": "#16a34a"
+        },
+        {
+          "code": "ก601",
+          "name": "แนะแนว6",
+          "per2wk": 2,
+          "credits": 0.5,
+          "semTotal": 20,
+          "budget": 4,
+          "slots": [
+            {
+              "week": "A",
+              "day": 2,
+              "period": 8
+            },
+            {
+              "week": "B",
+              "day": 2,
+              "period": 8
+            }
+          ],
+          "color": "#d97706"
+        },
+        {
+          "code": "พ33102",
+          "name": "สุขศึกษาและพลศึกษาเพื่อชีวิต 2",
+          "per2wk": 2,
+          "credits": 0.5,
+          "semTotal": 20,
+          "budget": 4,
+          "slots": [
+            {
+              "week": "A",
+              "day": 1,
+              "period": 2
+            },
+            {
+              "week": "B",
+              "day": 1,
+              "period": 8
+            }
+          ],
+          "color": "#e11d48"
+        },
+        {
+          "code": "ว30107",
+          "name": "วิทยาศาสตร์กายภาพ (ฟิสิกส์1)",
+          "per2wk": 2,
+          "credits": 0.5,
+          "semTotal": 20,
+          "budget": 4,
+          "slots": [
+            {
+              "week": "B",
+              "day": 1,
               "period": 5
             },
             {
               "week": "B",
               "day": 1,
-              "period": 1
+              "period": 6
             }
-          ]
+          ],
+          "color": "#9333ea"
+        },
+        {
+          "code": "ว30108",
+          "name": "วิทยาศาสตร์กายภาพ (ฟิสิกส์2)",
+          "per2wk": 2,
+          "credits": 0.5,
+          "semTotal": 20,
+          "budget": 4,
+          "slots": [
+            {
+              "week": "A",
+              "day": 1,
+              "period": 7
+            },
+            {
+              "week": "A",
+              "day": 1,
+              "period": 8
+            }
+          ],
+          "color": "#0ea5e9"
+        },
+        {
+          "code": "ศ33102",
+          "name": "ดุริยางคศิลป์สากล 2",
+          "per2wk": 2,
+          "credits": 0.5,
+          "semTotal": 20,
+          "budget": 4,
+          "slots": [
+            {
+              "week": "A",
+              "day": 2,
+              "period": 3
+            },
+            {
+              "week": "A",
+              "day": 2,
+              "period": 4
+            }
+          ],
+          "color": "#c026d3"
+        },
+        {
+          "code": "ส30212",
+          "name": "เหตุการณ์ปัจจุบัน 2",
+          "per2wk": 2,
+          "credits": 0.5,
+          "semTotal": 20,
+          "budget": 4,
+          "slots": [
+            {
+              "week": "A",
+              "day": 2,
+              "period": 6
+            },
+            {
+              "week": "B",
+              "day": 2,
+              "period": 5
+            }
+          ],
+          "color": "#4f46e5"
         }
       ]
     },
     "ม.6/3ฝ": {
       "subjects": [
         {
-          "code": "อ33202",
-          "name": "การเขียนภาษาอังกฤษเชิงวิชาการ 1",
-          "per2wk": 4,
-          "semTotal": 40,
-          "budget": 8.0,
-          "color": "#4f46e5",
-          "slots": [
-            {
-              "week": "A",
-              "day": 1,
-              "period": 3
-            },
-            {
-              "week": "A",
-              "day": 1,
-              "period": 4
-            },
-            {
-              "week": "B",
-              "day": 3,
-              "period": 6
-            },
-            {
-              "week": "B",
-              "day": 3,
-              "period": 7
-            }
-          ]
-        },
-        {
-          "code": "ค33102",
-          "name": "คณิตศาสตร์เบื้องต้น 5",
-          "per2wk": 4,
-          "semTotal": 40,
-          "budget": 8.0,
-          "color": "#16a34a",
-          "slots": [
-            {
-              "week": "A",
-              "day": 1,
-              "period": 1
-            },
-            {
-              "week": "A",
-              "day": 2,
-              "period": 7
-            },
-            {
-              "week": "B",
-              "day": 2,
-              "period": 7
-            },
-            {
-              "week": "B",
-              "day": 4,
-              "period": 5
-            }
-          ]
-        },
-        {
-          "code": "ศ33101",
-          "name": "ดุริยางคศิลป์สากล 1",
-          "per2wk": 2,
-          "semTotal": 20,
-          "budget": 4.0,
-          "color": "#d97706",
-          "slots": [
-            {
-              "week": "A",
-              "day": 3,
-              "period": 6
-            },
-            {
-              "week": "A",
-              "day": 3,
-              "period": 7
-            }
-          ]
-        },
-        {
-          "code": "ก601",
-          "name": "แนะแนว6",
-          "per2wk": 2,
-          "semTotal": 20,
-          "budget": 4.0,
-          "color": "#e11d48",
-          "slots": [
-            {
-              "week": "A",
-              "day": 2,
-              "period": 8
-            },
-            {
-              "week": "B",
-              "day": 2,
-              "period": 8
-            }
-          ]
-        },
-        {
-          "code": "ส33101",
-          "name": "บูรณาการสังคมศึกษา 5",
-          "per2wk": 4,
-          "semTotal": 40,
-          "budget": 8.0,
-          "color": "#0ea5e9",
-          "slots": [
-            {
-              "week": "A",
-              "day": 3,
-              "period": 3
-            },
-            {
-              "week": "A",
-              "day": 3,
-              "period": 4
-            },
-            {
-              "week": "B",
-              "day": 3,
-              "period": 3
-            },
-            {
-              "week": "B",
-              "day": 3,
-              "period": 4
-            }
-          ]
-        },
-        {
-          "code": "ส33102",
-          "name": "ประวัติศาสตร์สากล",
-          "per2wk": 4,
-          "semTotal": 40,
-          "budget": 8.0,
-          "color": "#9333ea",
-          "slots": [
-            {
-              "week": "A",
-              "day": 2,
-              "period": 4
-            },
-            {
-              "week": "A",
-              "day": 4,
-              "period": 4
-            },
-            {
-              "week": "B",
-              "day": 2,
-              "period": 3
-            },
-            {
-              "week": "B",
-              "day": 4,
-              "period": 3
-            }
-          ]
-        },
-        {
-          "code": "ท 33101",
-          "name": "พินิจภาษาไทย 5",
-          "per2wk": 4,
-          "semTotal": 40,
-          "budget": 8.0,
-          "color": "#0891b2",
-          "slots": [
-            {
-              "week": "A",
-              "day": 2,
-              "period": 3
-            },
-            {
-              "week": "A",
-              "day": 4,
-              "period": 3
-            },
-            {
-              "week": "B",
-              "day": 2,
-              "period": 4
-            },
-            {
-              "week": "B",
-              "day": 3,
-              "period": 5
-            }
-          ]
-        },
-        {
-          "code": "ฝ33201",
-          "name": "ภาษาฝรั่งเศสขั้นสูง 1",
+          "code": "ฝ33203",
+          "name": "ภาษาฝรั่งเศสขั้นสูง 2",
           "per2wk": 8,
+          "credits": 2.0,
           "semTotal": 80,
-          "budget": 16.0,
-          "color": "#c026d3",
+          "budget": 16,
           "slots": [
             {
               "week": "A",
@@ -2537,12 +2418,12 @@
             },
             {
               "week": "A",
-              "day": 2,
+              "day": 3,
               "period": 5
             },
             {
               "week": "A",
-              "day": 2,
+              "day": 3,
               "period": 6
             },
             {
@@ -2557,23 +2438,117 @@
             },
             {
               "week": "B",
-              "day": 2,
+              "day": 3,
+              "period": 5
+            },
+            {
+              "week": "B",
+              "day": 3,
+              "period": 6
+            }
+          ],
+          "color": "#4f46e5"
+        },
+        {
+          "code": "ค33104",
+          "name": "คณิตศาสตร์เบื้องต้น 6",
+          "per2wk": 4,
+          "credits": 1.0,
+          "semTotal": 40,
+          "budget": 8,
+          "slots": [
+            {
+              "week": "A",
+              "day": 1,
               "period": 1
+            },
+            {
+              "week": "A",
+              "day": 2,
+              "period": 7
+            },
+            {
+              "week": "B",
+              "day": 1,
+              "period": 2
             },
             {
               "week": "B",
               "day": 2,
-              "period": 2
+              "period": 7
             }
-          ]
+          ],
+          "color": "#0891b2"
         },
         {
-          "code": "ฝ33202",
-          "name": "ภาษาฝรั่งเศสเพื่อการสื่อสาร 5",
+          "code": "ท30206",
+          "name": "การใช้ภาษาไทย",
           "per2wk": 4,
+          "credits": 1.0,
           "semTotal": 40,
-          "budget": 8.0,
-          "color": "#4f46e5",
+          "budget": 8,
+          "slots": [
+            {
+              "week": "A",
+              "day": 1,
+              "period": 6
+            },
+            {
+              "week": "A",
+              "day": 3,
+              "period": 7
+            },
+            {
+              "week": "B",
+              "day": 1,
+              "period": 7
+            },
+            {
+              "week": "B",
+              "day": 2,
+              "period": 6
+            }
+          ],
+          "color": "#16a34a"
+        },
+        {
+          "code": "ท33102",
+          "name": "พินิจภาษาไทย 6",
+          "per2wk": 4,
+          "credits": 1.0,
+          "semTotal": 40,
+          "budget": 8,
+          "slots": [
+            {
+              "week": "A",
+              "day": 2,
+              "period": 5
+            },
+            {
+              "week": "A",
+              "day": 4,
+              "period": 5
+            },
+            {
+              "week": "B",
+              "day": 1,
+              "period": 1
+            },
+            {
+              "week": "B",
+              "day": 3,
+              "period": 7
+            }
+          ],
+          "color": "#d97706"
+        },
+        {
+          "code": "ฝ33204",
+          "name": "ภาษาฝรั่งเศสเพื่อการสื่อสาร 6",
+          "per2wk": 4,
+          "credits": 1.0,
+          "semTotal": 40,
+          "budget": 8,
           "slots": [
             {
               "week": "A",
@@ -2595,75 +2570,78 @@
               "day": 4,
               "period": 2
             }
-          ]
+          ],
+          "color": "#e11d48"
         },
         {
-          "code": "อ33101",
-          "name": "ภาษาอังกฤษขั้นสูง 1",
+          "code": "ส33103",
+          "name": "บูรณาการสังคมศึกษา 6",
           "per2wk": 4,
+          "credits": 1.0,
           "semTotal": 40,
-          "budget": 8.0,
-          "color": "#16a34a",
+          "budget": 8,
           "slots": [
             {
               "week": "A",
-              "day": 5,
+              "day": 3,
               "period": 3
             },
             {
               "week": "A",
-              "day": 5,
+              "day": 3,
               "period": 4
             },
             {
               "week": "B",
-              "day": 5,
+              "day": 3,
               "period": 3
             },
             {
               "week": "B",
-              "day": 5,
+              "day": 3,
               "period": 4
             }
-          ]
+          ],
+          "color": "#9333ea"
         },
         {
-          "code": "อ33201",
-          "name": "ภาษาอังกฤษอ่าน-เขียน 5",
+          "code": "ส33104",
+          "name": "ประวัติศาสตร์ไทย",
           "per2wk": 4,
+          "credits": 1.0,
           "semTotal": 40,
-          "budget": 8.0,
-          "color": "#d97706",
+          "budget": 8,
           "slots": [
             {
               "week": "A",
-              "day": 3,
-              "period": 1
+              "day": 4,
+              "period": 3
             },
             {
               "week": "A",
-              "day": 3,
-              "period": 2
+              "day": 4,
+              "period": 4
             },
             {
               "week": "B",
-              "day": 3,
-              "period": 1
+              "day": 4,
+              "period": 3
             },
             {
               "week": "B",
-              "day": 3,
-              "period": 2
+              "day": 4,
+              "period": 4
             }
-          ]
+          ],
+          "color": "#0ea5e9"
         },
         {
           "code": "สร03",
           "name": "เลือกเสรี ม.6",
           "per2wk": 4,
+          "credits": 1.0,
           "semTotal": 40,
-          "budget": 8.0,
-          "color": "#e11d48",
+          "budget": 8,
           "slots": [
             {
               "week": "A",
@@ -2685,107 +2663,227 @@
               "day": 5,
               "period": 2
             }
-          ]
+          ],
+          "color": "#c026d3"
         },
         {
-          "code": "ว30107",
-          "name": "วิทยาศาสตร์กายภาพ (ฟิสิกส์1)",
+          "code": "อ33102",
+          "name": "ภาษาอังกฤษขั้นสูง 2",
           "per2wk": 4,
+          "credits": 1.0,
           "semTotal": 40,
-          "budget": 8.0,
-          "color": "#0ea5e9",
+          "budget": 8,
           "slots": [
             {
               "week": "A",
-              "day": 1,
-              "period": 5
+              "day": 5,
+              "period": 3
             },
             {
               "week": "A",
-              "day": 1,
-              "period": 6
+              "day": 5,
+              "period": 4
             },
             {
               "week": "B",
-              "day": 1,
-              "period": 5
+              "day": 5,
+              "period": 3
             },
             {
               "week": "B",
-              "day": 1,
-              "period": 6
-            }
-          ]
-        },
-        {
-          "code": "พ33101",
-          "name": "สุขศึกษาและพลศึกษาเพื่อชีวิต 1",
-          "per2wk": 2,
-          "semTotal": 20,
-          "budget": 4.0,
-          "color": "#9333ea",
-          "slots": [
-            {
-              "week": "A",
-              "day": 1,
-              "period": 7
-            },
-            {
-              "week": "B",
-              "day": 1,
-              "period": 7
-            }
-          ]
-        },
-        {
-          "code": "ท 30205",
-          "name": "หลักภาษาไทย",
-          "per2wk": 4,
-          "semTotal": 40,
-          "budget": 8.0,
-          "color": "#0891b2",
-          "slots": [
-            {
-              "week": "A",
-              "day": 1,
-              "period": 2
-            },
-            {
-              "week": "A",
-              "day": 4,
-              "period": 5
-            },
-            {
-              "week": "B",
-              "day": 1,
-              "period": 2
-            },
-            {
-              "week": "B",
-              "day": 4,
+              "day": 5,
               "period": 4
             }
-          ]
+          ],
+          "color": "#4f46e5"
         },
         {
-          "code": "ส30211",
-          "name": "เหตุการณ์ปัจจุบัน 1",
-          "per2wk": 2,
-          "semTotal": 20,
-          "budget": 4.0,
-          "color": "#c026d3",
+          "code": "อ33203",
+          "name": "ภาษาอังกฤษอ่าน-เขียน 6",
+          "per2wk": 4,
+          "credits": 1.0,
+          "semTotal": 40,
+          "budget": 8,
           "slots": [
             {
               "week": "A",
               "day": 3,
+              "period": 1
+            },
+            {
+              "week": "A",
+              "day": 3,
+              "period": 2
+            },
+            {
+              "week": "B",
+              "day": 3,
+              "period": 1
+            },
+            {
+              "week": "B",
+              "day": 3,
+              "period": 2
+            }
+          ],
+          "color": "#0891b2"
+        },
+        {
+          "code": "อ33204",
+          "name": "การเขียนภาษาอังกฤษเชิงวิชาการ 2",
+          "per2wk": 4,
+          "credits": 1.0,
+          "semTotal": 40,
+          "budget": 8,
+          "slots": [
+            {
+              "week": "A",
+              "day": 1,
+              "period": 3
+            },
+            {
+              "week": "A",
+              "day": 1,
+              "period": 4
+            },
+            {
+              "week": "B",
+              "day": 2,
+              "period": 3
+            },
+            {
+              "week": "B",
+              "day": 2,
+              "period": 4
+            }
+          ],
+          "color": "#16a34a"
+        },
+        {
+          "code": "ก601",
+          "name": "แนะแนว6",
+          "per2wk": 2,
+          "credits": 0.5,
+          "semTotal": 20,
+          "budget": 4,
+          "slots": [
+            {
+              "week": "A",
+              "day": 2,
+              "period": 8
+            },
+            {
+              "week": "B",
+              "day": 2,
+              "period": 8
+            }
+          ],
+          "color": "#d97706"
+        },
+        {
+          "code": "พ33102",
+          "name": "สุขศึกษาและพลศึกษาเพื่อชีวิต 2",
+          "per2wk": 2,
+          "credits": 0.5,
+          "semTotal": 20,
+          "budget": 4,
+          "slots": [
+            {
+              "week": "A",
+              "day": 1,
+              "period": 2
+            },
+            {
+              "week": "B",
+              "day": 1,
+              "period": 8
+            }
+          ],
+          "color": "#e11d48"
+        },
+        {
+          "code": "ว30107",
+          "name": "วิทยาศาสตร์กายภาพ (ฟิสิกส์1)",
+          "per2wk": 2,
+          "credits": 0.5,
+          "semTotal": 20,
+          "budget": 4,
+          "slots": [
+            {
+              "week": "B",
+              "day": 1,
               "period": 5
             },
             {
               "week": "B",
               "day": 1,
-              "period": 1
+              "period": 6
             }
-          ]
+          ],
+          "color": "#9333ea"
+        },
+        {
+          "code": "ว30108",
+          "name": "วิทยาศาสตร์กายภาพ (ฟิสิกส์2)",
+          "per2wk": 2,
+          "credits": 0.5,
+          "semTotal": 20,
+          "budget": 4,
+          "slots": [
+            {
+              "week": "A",
+              "day": 1,
+              "period": 7
+            },
+            {
+              "week": "A",
+              "day": 1,
+              "period": 8
+            }
+          ],
+          "color": "#0ea5e9"
+        },
+        {
+          "code": "ศ33102",
+          "name": "ดุริยางคศิลป์สากล 2",
+          "per2wk": 2,
+          "credits": 0.5,
+          "semTotal": 20,
+          "budget": 4,
+          "slots": [
+            {
+              "week": "A",
+              "day": 2,
+              "period": 3
+            },
+            {
+              "week": "A",
+              "day": 2,
+              "period": 4
+            }
+          ],
+          "color": "#c026d3"
+        },
+        {
+          "code": "ส30212",
+          "name": "เหตุการณ์ปัจจุบัน 2",
+          "per2wk": 2,
+          "credits": 0.5,
+          "semTotal": 20,
+          "budget": 4,
+          "slots": [
+            {
+              "week": "A",
+              "day": 2,
+              "period": 6
+            },
+            {
+              "week": "B",
+              "day": 2,
+              "period": 5
+            }
+          ],
+          "color": "#4f46e5"
         }
       ]
     }

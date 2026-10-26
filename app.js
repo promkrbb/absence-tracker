@@ -19,7 +19,9 @@ let UID = null;
 let CAT = null;                 // catalog.json
 let SECTION = localStorage.getItem("atd_section") || "ม.6/2ย";
 let SUBJECTS = [];              // rows from attendance.subjects (current section)
-let ABSENCES = [];             // rows from attendance.absences
+let ABSENCES = [];             // rows from attendance.absences (future-dated = planned)
+let PROFILE = null;            // my attendance.profiles row (display name + share code)
+let BUDDIES = [];              // [{ profile, subjects, absences }] for linked friends
 let LANG = localStorage.getItem("atd_lang") ||
   ((navigator.language || "en").toLowerCase().startsWith("th") ? "th" : "en");
 
@@ -29,8 +31,18 @@ let LANG = localStorage.getItem("atd_lang") ||
 const T = {
   en: {
     appName: "Absence Budget",
-    tabToday: "Today", tabOverview: "Overview", tabSubjects: "Subjects", tabSettings: "Settings",
+    tabToday: "Today", tabOverview: "Overview", tabSubjects: "Subjects", tabFriends: "Friends", tabSettings: "Settings",
     todaysClasses: "Today's classes",
+    noClassReason: "No class today: {r}", termNotStarted: "The term hasn't started yet.",
+    termOver: "Regular classes are over for this term 🎉",
+    classesLeft: "{n} real classes left this term", plannedN: "{n} planned", plannedTag: "Planned",
+    plannedNote: "Pick a future date to plan an absence. It counts against your budget now and becomes a real absence when the day comes.",
+    creditsN: "{c} credit",
+    friendsTitle: "Friends", friendsNote: "Share your code with a friend. Once one of you adds the other's code, you can both see how close each other is to the limit.",
+    myCode: "My code", addFriend: "Add a friend's code", friendCodePh: "e.g. 7KQ2XD", link: "Add",
+    linked: "Friend added ✓", codeNotFound: "No one has that code", noFriends: "No friends added yet.",
+    removeFriend: "Remove", removeFriendQ: "Remove {n} from friends? You'll both stop seeing each other.",
+    allGood: "Every subject is fine", closest: "Closest to the limit",
     todayNote: "Tap “Absent” on a class you missed today — it logs those periods against your 20% budget.",
     noClassToday: "No classes today. Enjoy!",
     pickSectionTitle: "Pick your class", pickSection: "Pick my section",
@@ -76,8 +88,18 @@ const T = {
   },
   th: {
     appName: "โควตาการขาด",
-    tabToday: "วันนี้", tabOverview: "ภาพรวม", tabSubjects: "รายวิชา", tabSettings: "ตั้งค่า",
+    tabToday: "วันนี้", tabOverview: "ภาพรวม", tabSubjects: "รายวิชา", tabFriends: "เพื่อน", tabSettings: "ตั้งค่า",
     todaysClasses: "คาบเรียนวันนี้",
+    noClassReason: "วันนี้ไม่มีเรียน: {r}", termNotStarted: "ยังไม่เปิดภาคเรียน",
+    termOver: "หมดคาบเรียนปกติของเทอมนี้แล้ว 🎉",
+    classesLeft: "เหลือเรียนจริงอีก {n} คาบในเทอมนี้", plannedN: "วางแผนขาด {n}", plannedTag: "วางแผน",
+    plannedNote: "เลือกวันในอนาคตเพื่อวางแผนการขาด ระบบจะหักโควตาไว้ก่อน และนับเป็นการขาดจริงเมื่อถึงวันนั้น",
+    creditsN: "{c} หน่วยกิต",
+    friendsTitle: "เพื่อน", friendsNote: "แชร์โค้ดให้เพื่อน เมื่อคนใดคนหนึ่งใส่โค้ดของอีกฝ่าย ทั้งสองคนจะเห็นว่าอีกฝ่ายใกล้เกินโควตาแค่ไหน",
+    myCode: "โค้ดของฉัน", addFriend: "ใส่โค้ดของเพื่อน", friendCodePh: "เช่น 7KQ2XD", link: "เพิ่ม",
+    linked: "เพิ่มเพื่อนแล้ว ✓", codeNotFound: "ไม่พบโค้ดนี้", noFriends: "ยังไม่ได้เพิ่มเพื่อน",
+    removeFriend: "ลบ", removeFriendQ: "ลบ {n} ออกจากเพื่อน? ทั้งสองคนจะไม่เห็นข้อมูลของกันและกันอีก",
+    allGood: "ทุกวิชายังปลอดภัย", closest: "ใกล้เกินโควตาที่สุด",
     todayNote: "แตะ “ขาด” ที่วิชาที่คุณขาดวันนี้ ระบบจะบันทึกคาบนั้นเข้าโควตา 20% ให้",
     noClassToday: "วันนี้ไม่มีเรียน พักผ่อนได้เลย!",
     pickSectionTitle: "เลือกห้องของคุณ", pickSection: "เลือกห้องของฉัน",
@@ -165,6 +187,39 @@ function weekInfoFor(date) {
   if (ov && ov.monday === iso(mondayOf(date))) letter = ov.letter;
   return { letter, number };
 }
+// Is there school on this date? → { open:true } or { open:false, reason }
+function dayInfo(date) {
+  const wd = date.getDay();
+  if (wd < 1 || wd > 5) return { open: false, reason: "weekend" };
+  const cal = CAT && CAT.calendar;
+  if (!cal) return { open: true };
+  const d = iso(date);
+  if (d < cal.start) return { open: false, reason: "before" };
+  if (d > cal.lastClass) return { open: false, reason: "over" };
+  const off = (cal.noClass || []).find((x) => x.date === d);
+  if (off) return { open: false, reason: "holiday", label: off[LANG] || off.en };
+  return { open: true };
+}
+function catSubject(s) {
+  const subs = (CAT && CAT.sections[SECTION] && CAT.sections[SECTION].subjects) || [];
+  return subs.find((c) => (s.code && c.code === s.code) || c.name === s.name);
+}
+// periods this subject meets on a given date (0 if no school or not timetabled)
+function periodsOn(cs, date) {
+  if (!cs || !dayInfo(date).open) return 0;
+  const { letter } = weekInfoFor(date);
+  return (cs.slots || []).filter((sl) => sl.week === letter && sl.day === date.getDay()).length;
+}
+// real class periods still ahead this term (today included), from timetable + calendar
+function remainingSessions(s) {
+  const cs = catSubject(s);
+  if (!cs || !CAT.calendar) return null;
+  const end = new Date(CAT.calendar.lastClass + "T00:00:00");
+  let n = 0;
+  for (let d = today(); d <= end; d = addDays(d, 1)) n += periodsOn(cs, d);
+  return n;
+}
+
 function setThisWeek(letter) {
   localStorage.setItem("atd_week", JSON.stringify({ monday: iso(mondayOf(today())), letter }));
   renderAll(); toast(t("saved"));
@@ -191,7 +246,11 @@ async function init() {
     if (error) { $("whoami").textContent = "⚠️"; showAuthBanner(); console.error("Anon sign-in failed:", error.message); }
     else { UID = data.user.id; authOk = true; }
   }
-  if (authOk) { $("whoami").textContent = localStorage.getItem("atd_name") || "Guest"; await ensureSeeded(); await loadAll(); }
+  if (authOk) {
+    $("whoami").textContent = localStorage.getItem("atd_name") || "Guest";
+    await ensureSeeded(); await loadAll();
+    await ensureProfile(); await loadBuddies();
+  }
   renderAll();
 }
 
@@ -209,12 +268,12 @@ function showAuthBanner() {
 // Seed subjects for the current section if none exist yet for this user.
 async function ensureSeeded() {
   if (!UID || !CAT) return;
-  const { data: existing } = await sb.from("subjects").select("id").eq("user_id", UID).eq("section", SECTION).limit(1);
+  const { data: existing } = await sb.from("subjects").select("id").eq("user_id", UID).eq("section", SECTION).eq("semester", CAT.semester).limit(1);
   if (existing && existing.length) return;
   const sec = CAT.sections[SECTION];
   if (!sec) return;
   const rows = sec.subjects.map((s, i) => ({
-    user_id: UID, section: SECTION, code: s.code, name: s.name,
+    user_id: UID, section: SECTION, semester: CAT.semester, code: s.code, name: s.name,
     sem_total: s.semTotal, budget: s.budget, color: s.color, sort: i,
   }));
   if (rows.length) await sb.from("subjects").insert(rows);
@@ -222,7 +281,7 @@ async function ensureSeeded() {
 
 async function loadAll() {
   const [{ data: subs }, { data: abs }] = await Promise.all([
-    sb.from("subjects").select("*").eq("user_id", UID).eq("section", SECTION).order("sort"),
+    sb.from("subjects").select("*").eq("user_id", UID).eq("section", SECTION).eq("semester", CAT ? CAT.semester : "").order("sort"),
     sb.from("absences").select("*").eq("user_id", UID),
   ]);
   SUBJECTS = subs || [];
@@ -230,11 +289,73 @@ async function loadAll() {
   ABSENCES = (abs || []).filter((a) => ids.has(a.subject_id));
 }
 
+// ---------- profile + friends ----------
+async function ensureProfile() {
+  const { data } = await sb.from("profiles").select("*").eq("user_id", UID).maybeSingle();
+  PROFILE = data;
+  const name = localStorage.getItem("atd_name") || "Guest";
+  if (!PROFILE) {
+    const { data: made } = await sb.from("profiles").insert({ user_id: UID, display_name: name, section: SECTION }).select().single();
+    PROFILE = made;
+  } else if (PROFILE.section !== SECTION || PROFILE.display_name !== name) {
+    await saveProfile();
+  }
+}
+async function saveProfile() {
+  if (!PROFILE) return;
+  const display_name = localStorage.getItem("atd_name") || "Guest";
+  const { data } = await sb.from("profiles").update({ display_name, section: SECTION }).eq("user_id", UID).select().single();
+  if (data) PROFILE = data;
+}
+async function loadBuddies() {
+  BUDDIES = [];
+  if (!CAT) return;
+  const { data: links } = await sb.from("buddies").select("owner_id").eq("viewer_id", UID);
+  const ids = (links || []).map((l) => l.owner_id);
+  if (!ids.length) return;
+  const [{ data: profs }, { data: subs }, { data: abs }] = await Promise.all([
+    sb.from("profiles").select("*").in("user_id", ids),
+    sb.from("subjects").select("*").in("user_id", ids).eq("semester", CAT.semester),
+    sb.from("absences").select("*").in("user_id", ids),
+  ]);
+  BUDDIES = (profs || []).map((p) => {
+    const subjects = (subs || []).filter((s) => s.user_id === p.user_id && s.section === p.section);
+    const sids = new Set(subjects.map((s) => s.id));
+    return { profile: p, subjects, absences: (abs || []).filter((a) => sids.has(a.subject_id)) };
+  });
+}
+async function linkBuddy(code) {
+  const { data, error } = await sb.rpc("link_buddy", { code: code.trim().toUpperCase() });
+  if (error || !data) { toast(t("codeNotFound")); return; }
+  await loadBuddies(); renderBuddies(); toast(t("linked"));
+}
+async function unlinkBuddy(b) {
+  if (!confirm(t("removeFriendQ", { n: b.profile.display_name }))) return;
+  await sb.rpc("unlink_buddy", { other: b.profile.user_id });
+  await loadBuddies(); renderBuddies(); toast(t("deleted"));
+}
+
 // ============================================================
 //  Computations
 // ============================================================
-function usedFor(subjId) {
-  return ABSENCES.filter((a) => a.subject_id === subjId).reduce((n, a) => n + (a.periods || 0), 0);
+// used = absences up to today; planned = future-dated ones (they become "used" when the day comes)
+function usedFor(subjId, list = ABSENCES) {
+  const d = iso(today());
+  return list.filter((a) => a.subject_id === subjId && a.the_date <= d).reduce((n, a) => n + (a.periods || 0), 0);
+}
+function plannedFor(subjId, list = ABSENCES) {
+  const d = iso(today());
+  return list.filter((a) => a.subject_id === subjId && a.the_date > d).reduce((n, a) => n + (a.periods || 0), 0);
+}
+function budgetLine(s, used, planned) {
+  let txt = t("ofBudget", { used, budget: s.budget, total: s.sem_total });
+  if (planned) txt += " · " + t("plannedN", { n: planned });
+  return txt;
+}
+function meterHtml(s, used, planned) {
+  const w = (n) => s.budget ? Math.min(100, Math.round((n / s.budget) * 100)) : 0;
+  const u = w(used), p = Math.min(100 - u, w(planned));
+  return `<div class="meter"><i style="width:${u}%"></i><i class="plan" style="width:${p}%"></i></div>`;
 }
 function statusOf(used, budget) {
   const left = budget - used;
@@ -245,7 +366,7 @@ function statusOf(used, budget) {
 function slotsToday() {
   if (!CAT || !CAT.sections[SECTION]) return [];
   const wd = new Date().getDay();            // 0..6
-  if (wd < 1 || wd > 5) return [];           // weekend
+  if (!dayInfo(today()).open) return [];     // weekend, holiday, exams, outside term
   const { letter } = weekInfoFor(today());
   const out = [];
   CAT.sections[SECTION].subjects.forEach((cs) => {
@@ -266,7 +387,7 @@ function renderAll() {
   const wtxt = `${info.letter} · ${t("weekOf", { n: info.number, t: (CAT ? CAT.weeks : 20) })}`;
   ["weekBadge", "weekBadge2"].forEach((id) => { if ($(id)) $(id).textContent = wtxt; });
   ["secLabel", "secLabel2"].forEach((id) => { if ($(id)) $(id).textContent = SECTION; });
-  renderToday(); renderOverview(); renderSubjects(); renderSettingsInfo();
+  renderToday(); renderOverview(); renderSubjects(); renderBuddies(); renderSettingsInfo();
 }
 
 function renderToday() {
@@ -276,6 +397,11 @@ function renderToday() {
   const dISO = iso(today());
   const slots = slotsToday();
   $("todayEmpty").style.display = (hasSubjects && slots.length === 0) ? "block" : "none";
+  const di = dayInfo(today());
+  $("todayEmptyText").textContent =
+    di.reason === "holiday" ? t("noClassReason", { r: di.label }) :
+    di.reason === "over" ? t("termOver") :
+    di.reason === "before" ? t("termNotStarted") : t("noClassToday");
   $("todayTitle").textContent = `${t("todaysClasses")} · ${T[LANG].days[new Date().getDay()]}`;
 
   slots.forEach((sl) => {
@@ -314,20 +440,21 @@ function renderOverview() {
   const wrap = $("overviewList"); wrap.innerHTML = "";
   $("overviewEmpty").style.display = SUBJECTS.length ? "none" : "block";
   const cards = SUBJECTS.map((s) => {
-    const used = usedFor(s.id); const st = statusOf(used, s.budget);
-    return { s, used, ...st };
+    const used = usedFor(s.id), planned = plannedFor(s.id); const st = statusOf(used + planned, s.budget);
+    return { s, used, planned, ...st };
   }).sort((a, b) => a.left - b.left);   // worst first
 
-  cards.forEach(({ s, used, cls, left }) => {
-    const pct = s.budget ? Math.min(100, Math.round((used / s.budget) * 100)) : 0;
+  cards.forEach(({ s, used, planned, cls, left }) => {
+    const rem = remainingSessions(s);
     const card = document.createElement("div");
     card.className = "subj-card " + cls;
     card.innerHTML = `
       <div class="bar" style="background:${s.color}"></div>
       <div class="body">
         <div class="name">${escapeHtml(s.name)}</div>
-        <div class="sub">${t("ofBudget", { used, budget: s.budget, total: s.sem_total })}</div>
-        <div class="meter"><i style="width:${pct}%"></i></div>
+        <div class="sub">${budgetLine(s, used, planned)}</div>
+        ${rem != null ? `<div class="sub">${t("classesLeft", { n: rem })}</div>` : ""}
+        ${meterHtml(s, used, planned)}
       </div>
       <div class="left"><b>${left < 0 ? 0 : left}</b><small>${t("left")}</small></div>`;
     card.onclick = () => openSubjectDetail(s);
@@ -338,18 +465,49 @@ function renderOverview() {
 function renderSubjects() {
   const wrap = $("subjectsList"); wrap.innerHTML = "";
   SUBJECTS.forEach((s) => {
-    const used = usedFor(s.id); const st = statusOf(used, s.budget);
+    const used = usedFor(s.id), planned = plannedFor(s.id); const st = statusOf(used + planned, s.budget);
     const row = document.createElement("div");
     row.className = "subj-card " + st.cls;
     row.innerHTML = `
       <div class="bar" style="background:${s.color}"></div>
       <div class="body">
         <div class="name">${escapeHtml(s.name)} <span class="edit-hint">✏️</span></div>
-        <div class="sub">${t("ofBudget", { used, budget: s.budget, total: s.sem_total })}</div>
+        <div class="sub">${budgetLine(s, used, planned)}</div>
       </div>
       <div class="left"><b>${st.left < 0 ? 0 : st.left}</b><small>${t("left")}</small></div>`;
     row.onclick = () => openSubjectEdit(s);
     wrap.appendChild(row);
+  });
+}
+
+function renderBuddies() {
+  $("myCode").textContent = PROFILE ? PROFILE.share_code : "—";
+  const wrap = $("friendsList"); wrap.innerHTML = "";
+  $("friendsEmpty").style.display = BUDDIES.length ? "none" : "block";
+  BUDDIES.forEach((b) => {
+    const rows = b.subjects.map((s) => {
+      const used = usedFor(s.id, b.absences), planned = plannedFor(s.id, b.absences);
+      return { s, used, planned, ...statusOf(used + planned, s.budget) };
+    }).sort((x, y) => x.left - y.left);
+    const worst = rows.filter((r) => r.cls !== "ok").slice(0, 3);
+    const shown = worst.length ? worst : rows.slice(0, 1);
+    const card = document.createElement("div");
+    card.className = "card friend-card";
+    card.innerHTML = `
+      <div class="setting-line">
+        <div><div class="t">${escapeHtml(b.profile.display_name || "Guest")}</div>
+          <div class="d">${escapeHtml(b.profile.section || "")} · ${worst.length ? t("closest") : t("allGood")}</div></div>
+        <button class="btn ghost small rm">${t("removeFriend")}</button>
+      </div>
+      ${shown.map(({ s, used, planned, cls, left }) => `
+        <div class="subj-card ${cls}" style="cursor:default;box-shadow:none;margin:10px 0 0;padding:10px 0;">
+          <div class="bar" style="background:${s.color}"></div>
+          <div class="body"><div class="name">${escapeHtml(s.name)}</div>
+            <div class="sub">${budgetLine(s, used, planned)}</div>${meterHtml(s, used, planned)}</div>
+          <div class="left"><b>${left < 0 ? 0 : left}</b><small>${t("left")}</small></div>
+        </div>`).join("")}`;
+    card.querySelector(".rm").onclick = () => unlinkBuddy(b);
+    wrap.appendChild(card);
   });
 }
 
@@ -381,12 +539,15 @@ function openSheet(html) { $("sheetBody").innerHTML = html; $("sheet").classList
 function closeSheet() { $("sheet").classList.remove("open"); $("backdrop").classList.remove("open"); }
 
 function openSubjectDetail(s) {
-  const used = usedFor(s.id); const st = statusOf(used, s.budget);
+  const used = usedFor(s.id), planned = plannedFor(s.id); const st = statusOf(used + planned, s.budget);
+  const rem = remainingSessions(s); const cs = catSubject(s);
+  const todayISO = iso(today());
   const rows = ABSENCES.filter((a) => a.subject_id === s.id).sort((a, b) => b.the_date.localeCompare(a.the_date));
   const list = rows.length ? rows.map((a) => {
     const d = new Date(a.the_date + "T00:00:00");
+    const tag = a.the_date > todayISO ? ` <span class="tag-plan">${t("plannedTag")}</span>` : "";
     return `<div class="abs-row" data-id="${a.id}">
-      <div style="flex:1;"><div class="d">${escapeHtml(fmtDate(d))}</div>${a.note ? `<div class="m">${escapeHtml(a.note)}</div>` : ""}</div>
+      <div style="flex:1;"><div class="d">${escapeHtml(fmtDate(d))}${tag}</div>${a.note ? `<div class="m">${escapeHtml(a.note)}</div>` : ""}</div>
       <span class="p">−${a.periods} ${t("periodShort")}</span>
       <button class="x" title="×">✕</button></div>`;
   }).join("") : `<p class="empty" style="padding:18px;">${t("noAbsences")}</p>`;
@@ -394,7 +555,8 @@ function openSubjectDetail(s) {
   openSheet(`
     <h2>${escapeHtml(s.name)}</h2>
     <div class="big-hero"><div class="n" style="color:${st.cls==="danger"?"var(--danger)":st.cls==="warn"?"var(--warn)":"var(--good)"}">${st.left < 0 ? 0 : st.left}</div>
-      <div class="of">${t("left")} · ${t("ofBudget", { used, budget: s.budget, total: s.sem_total })}</div></div>
+      <div class="of">${t("left")} · ${budgetLine(s, used, planned)}</div>
+      <div class="of">${cs && cs.credits ? t("creditsN", { c: cs.credits }) + " · " : ""}${rem != null ? t("classesLeft", { n: rem }) : ""}</div></div>
     ${st.left <= 0 ? `<p class="note" style="background:#fde8e8;color:var(--danger);text-align:center;">${t("overBudget")}</p>` : ""}
     <button class="btn primary" id="addAbsBtn" style="margin:8px 0 14px;">+ ${t("addAbsence")}</button>
     <div id="absList">${list}</div>
@@ -416,6 +578,7 @@ function openAddAbsence(s) {
   openSheet(`
     <h2>${t("addAbsence")}</h2>
     <div class="note">${escapeHtml(s.name)}</div>
+    <p class="note" style="font-size:12px;">${t("plannedNote")}</p>
     <label class="field">${t("date")}</label>
     <input type="date" id="aDate" />
     <label class="field">${t("howManyPeriods")}</label>
@@ -426,6 +589,10 @@ function openAddAbsence(s) {
   `);
   $("aDate").value = iso(today());
   const upd = () => $("aVal").textContent = val;
+  // pre-fill how many periods this subject has on the picked date
+  const cs = catSubject(s);
+  const autoFill = () => { const n = periodsOn(cs, new Date($("aDate").value + "T00:00:00")); if (n) { val = n; upd(); } };
+  $("aDate").onchange = autoFill; autoFill();
   $("aMinus").onclick = () => { val = Math.max(1, val - 1); upd(); };
   $("aPlus").onclick = () => { val = Math.min(8, val + 1); upd(); };
   $("aSave").onclick = async () => {
@@ -471,7 +638,7 @@ function openSubjectEdit(s) {
     const budget = parseInt($("eBudget").value, 10) || 0;
     if (isNew) {
       const sort = SUBJECTS.length;
-      const { data, error } = await sb.from("subjects").insert({ user_id: UID, section: SECTION, code: null, name, sem_total, budget, color: chosen, sort }).select().single();
+      const { data, error } = await sb.from("subjects").insert({ user_id: UID, section: SECTION, semester: CAT.semester, code: null, name, sem_total, budget, color: chosen, sort }).select().single();
       if (error) { toast(t("saveFailed")); return; }
       SUBJECTS.push(data);
     } else {
@@ -504,7 +671,7 @@ async function switchSection(sec) {
   if (SUBJECTS.length && !confirm(t("switchSectionQ", { s: sec }))) return;
   SECTION = sec; localStorage.setItem("atd_section", sec);
   closeSheet();
-  await ensureSeeded(); await loadAll(); renderAll();
+  await ensureSeeded(); await loadAll(); await saveProfile(); renderAll();
   toast(t("saved"));
 }
 
@@ -532,10 +699,10 @@ async function importBackup() {
     if (!confirm(t("restoreConfirm"))) return;
     SECTION = p.section || SECTION; localStorage.setItem("atd_section", SECTION);
     // wipe this section then restore
-    await sb.from("subjects").delete().eq("user_id", UID).eq("section", SECTION);
+    await sb.from("subjects").delete().eq("user_id", UID).eq("section", SECTION).eq("semester", CAT.semester);
     const idMap = {};
     for (const s of p.subjects) {
-      const { data } = await sb.from("subjects").insert({ user_id: UID, section: SECTION, code: s.code, name: s.name, sem_total: s.sem_total, budget: s.budget, color: s.color, sort: s.sort }).select().single();
+      const { data } = await sb.from("subjects").insert({ user_id: UID, section: SECTION, semester: CAT.semester, code: s.code, name: s.name, sem_total: s.sem_total, budget: s.budget, color: s.color, sort: s.sort }).select().single();
       if (data) idMap[s.id] = data.id;
     }
     const absRows = (p.absences || []).map((a) => ({ user_id: UID, subject_id: idMap[a.subject_id], the_date: a.the_date, periods: a.periods, note: a.note })).filter((a) => a.subject_id);
@@ -559,9 +726,15 @@ function wireTabs() {
 }
 function wireSettings() {
   $("nameInput").value = localStorage.getItem("atd_name") || "";
-  $("saveNameBtn").onclick = () => {
+  $("saveNameBtn").onclick = async () => {
     const n = $("nameInput").value.trim() || "Guest";
-    localStorage.setItem("atd_name", n); $("whoami").textContent = n; toast(t("saved"));
+    localStorage.setItem("atd_name", n); $("whoami").textContent = n;
+    await saveProfile(); toast(t("saved"));
+  };
+  $("linkBtn").onclick = () => { const c = $("friendCode").value; if (c.trim()) linkBuddy(c).then(() => $("friendCode").value = ""); };
+  $("copyMyCode").onclick = async () => {
+    if (!PROFILE) return;
+    try { await navigator.clipboard.writeText(PROFILE.share_code); toast(t("copied")); } catch { toast(t("copyManually")); }
   };
   $("pickSectionBtn").onclick = openSectionPicker;
   $("pickSectionCta").onclick = openSectionPicker;
