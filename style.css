@@ -1,32 +1,45 @@
+/* Palette + type follow Chitralada's info.cds.ac.th: navy #003A87 / #002352, yellow accent, Kanit + Sarabun */
 :root {
-  --bg: #f4f5fb;
+  --bg: #F5F5F5;
   --card: #ffffff;
-  --ink: #1c1e2a;
-  --muted: #6b7080;
-  --line: #e6e7f0;
-  --brand: #4f46e5;
-  --brand-soft: #ecebff;
+  --ink: #0f1e3a;
+  --muted: #67768e;
+  --line: #e3e7ee;
+  --brand: #003A87;
+  --brand-2: #165EBE;
+  --brand-deep: #002352;
+  --brand-soft: #e8eef8;
+  --accent: #FFD24F;
+  --accent-ink: #002352;
+  --on-brand: #ffffff;
+  --header: #003A87;
   --good: #16a34a;
   --good-soft: #e7f6ec;
   --warn: #d97706;
   --danger: #dc2626;
-  --radius: 18px;
-  --shadow: 0 6px 20px rgba(30, 30, 60, 0.08);
+  --radius: 10px;
+  --shadow: 0 1px 3px rgba(0, 35, 82, 0.08), 0 4px 14px rgba(0, 35, 82, 0.05);
   --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --font-head: "Kanit", "Sarabun", sans-serif;
+  --font-body: "Sarabun", -apple-system, "Segoe UI", Roboto, sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #12131a;
-    --card: #1c1e29;
-    --ink: #f0f1f7;
-    --muted: #9599ab;
-    --line: #2a2d3a;
-    --brand: #8b83ff;
-    --brand-soft: #262547;
+    --bg: #0b1424;
+    --card: #12203a;
+    --ink: #eef2f9;
+    --muted: #9aa8bf;
+    --line: #22324f;
+    --brand: #6ea4ff;
+    --brand-2: #8db8ff;
+    --brand-deep: #001631;
+    --header: #0a2a5e;
+    --on-brand: #0b1424;
+    --brand-soft: #172b4d;
     --good: #4ade80;
     --good-soft: #16351f;
-    --shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+    --shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
   }
 }
 
@@ -37,9 +50,11 @@ html, body {
   padding: 0;
   background: var(--bg);
   color: var(--ink);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family: var(--font-body);
   overscroll-behavior-y: none;
 }
+h1, h2, h3, .btn, .tabbar button, .section-title, .week-badge,
+.subj-card .name, .today-card .name, .subj-card .left b, .big-hero .n, .share-code { font-family: var(--font-head); font-weight: 500; }
 
 body {
   max-width: 520px;
@@ -53,14 +68,17 @@ body {
   position: sticky;
   top: 0;
   z-index: 10;
-  background: var(--bg);
-  padding: 18px 18px 8px;
+  background: var(--header);
+  color: #fff;
+  padding: 14px 18px 12px;
+  border-bottom: 4px solid var(--accent);
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 12px;
 }
-.app-header h1 { font-size: 22px; margin: 0; display: flex; gap: 8px; align-items: center; }
-.app-header .who { font-size: 13px; color: var(--muted); }
+.app-header h1 { font-size: 21px; margin: 0; display: flex; gap: 8px; align-items: center; font-weight: 500; letter-spacing: .2px; }
+.app-header .who { font-size: 13px; color: var(--accent-ink); background: var(--accent); padding: 4px 11px; border-radius: 999px; font-weight: 700; }
 
 /* ---------- Screens ---------- */
 .screen { display: none; padding: 6px 16px 16px; animation: fade .18s ease; }
@@ -191,12 +209,13 @@ input[type=text], input[type=date], input[type=time], select {
 .tabbar {
   position: fixed; bottom: 0; left: 0; right: 0; z-index: 40;
   max-width: 520px; margin: 0 auto;
-  display: flex; background: var(--card); border-top: 1px solid var(--line);
+  display: flex; background: var(--brand-deep); border-top: 3px solid var(--accent);
   padding-bottom: var(--safe-bottom);
 }
-.tabbar button { flex: 1; border: 0; background: transparent; color: var(--muted); padding: 10px 0 8px; font-size: 11px; font-weight: 600; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 3px; }
-.tabbar button .ic { font-size: 21px; }
-.tabbar button.active { color: var(--brand); }
+.tabbar button { flex: 1; border: 0; background: transparent; color: rgba(255,255,255,.62); padding: 9px 0 8px; font-size: 11px; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 3px; }
+.tabbar button .ic { font-size: 20px; opacity: .75; }
+.tabbar button.active { color: var(--accent); }
+.tabbar button.active .ic { opacity: 1; }
 
 .setting-line { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--line); }
 .setting-line:last-child { border-bottom: 0; }
@@ -262,3 +281,29 @@ input[type=text], input[type=date], input[type=time], select {
 .tag-plan { font-size:11px; font-weight:700; color:var(--warn); border:1px solid var(--warn); border-radius:6px; padding:0 5px; margin-left:6px; }
 .share-code { font-family: ui-monospace, monospace; font-size:24px; font-weight:800; letter-spacing:3px; color:var(--brand); }
 .friend-card .subj-card .name { font-size:14px; }
+
+/* ---------- CDS-style accents ---------- */
+/* section headings get the school site's short yellow rule */
+.day-head h3, .screen > h3 { position: relative; padding-left: 12px; color: var(--brand); }
+.day-head h3::before, .screen > h3::before { content: ""; position: absolute; left: 0; top: 15%; bottom: 15%; width: 4px; border-radius: 2px; background: var(--accent); }
+.btn { border-radius: 9px; }
+.btn.small { border-radius: 8px; }
+.btn.primary { background: var(--brand); color: var(--on-brand); }
+.btn.primary:disabled { opacity: .45; }
+.btn.ghost { color: var(--brand); border-color: var(--brand-soft); }
+.btn.accent { background: var(--accent); color: var(--accent-ink); box-shadow: var(--shadow); }
+.week-badge { background: var(--brand); color: var(--on-brand); border-radius: 6px; }
+.top-chip .sec { color: var(--brand); }
+.note { background: var(--card); border-left: 4px solid var(--brand-2); border-radius: 8px; }
+.card, .subj-card, .today-card { border: 1px solid var(--line); }
+.subj-card, .today-card { border-radius: var(--radius); }
+.toggle-row { border-radius: 9px; background: var(--brand-soft); }
+.toggle-row button { border-radius: 7px; color: var(--brand); font-family: var(--font-head); font-weight: 500; }
+.toggle-row button.active { background: var(--brand); color: var(--on-brand); }
+.preset.sel { background: var(--brand); border-color: var(--brand); }
+.sheet { border-top: 4px solid var(--accent); }
+.sheet h2 { color: var(--brand); }
+.mini-row { display: flex; align-items: center; gap: 10px; padding: 9px 2px; border-bottom: 1px solid var(--line); font-size: 14px; }
+.mini-row i { width: 5px; height: 20px; border-radius: 3px; flex: 0 0 auto; }
+.mini-row span { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.mini-row b { flex: 0 0 auto; color: var(--muted); font-size: 12px; }

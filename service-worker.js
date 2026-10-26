@@ -1,5 +1,5 @@
 /* Absence Budget service worker — offline app shell */
-const CACHE = "attendance-v2";
+const CACHE = "attendance-v3";
 const SHELL = [
   "./",
   "./index.html",

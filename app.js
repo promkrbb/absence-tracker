@@ -38,6 +38,12 @@ const T = {
     classesLeft: "{n} real classes left this term", plannedN: "{n} planned", plannedTag: "Planned",
     plannedNote: "Pick a future date to plan an absence. It counts against your budget now and becomes a real absence when the day comes.",
     creditsN: "{c} credit",
+    dayBtn: "🗓️ Absent a whole / half day", dayTitle: "Absent a whole or half day",
+    dayNote: "Logs every class on that day in one go. Pick a future date to plan a day off ahead of time.",
+    dayPart: "Which part?", wholeDay: "Whole day", morning: "Morning", afternoon: "Afternoon",
+    willLog: "Will log {n} subjects · {p} periods", willPlan: "Will plan {n} subjects · {p} periods",
+    noClassThatDay: "No school that day.", noClassOn: "No school that day: {r}", nothingToLog: "Nothing to log — no classes then, or already logged.",
+    planIt: "Plan it",
     friendsTitle: "Friends", friendsNote: "Share your code with a friend. Once one of you adds the other's code, you can both see how close each other is to the limit.",
     myCode: "My code", addFriend: "Add a friend's code", friendCodePh: "e.g. 7KQ2XD", link: "Add",
     linked: "Friend added ✓", codeNotFound: "No one has that code", noFriends: "No friends added yet.",
@@ -66,7 +72,7 @@ const T = {
     absent: "Absent", undo: "Undo ↩︎", markedToday: "Marked absent today ✓",
     overBudget: "⚠️ Over the 20% limit",
     subjectDetail: "Subject", noAbsences: "No absences logged yet.",
-    addAbsence: "Log an absence", date: "Date", howManyPeriods: "How many periods?",
+    addAbsence: "Log or plan an absence", date: "Date", howManyPeriods: "How many periods?",
     noteOptional: "Note (optional)", notePh: "e.g. sick, dentist", save: "Save",
     logged: "Logged ✓", deleted: "Deleted", deleteAbsenceQ: "Delete this absence?",
     editSubject: "Edit subject", subjectName: "Subject name", totalPeriods: "Total periods (semester)",
@@ -95,6 +101,12 @@ const T = {
     classesLeft: "เหลือเรียนจริงอีก {n} คาบในเทอมนี้", plannedN: "วางแผนขาด {n}", plannedTag: "วางแผน",
     plannedNote: "เลือกวันในอนาคตเพื่อวางแผนการขาด ระบบจะหักโควตาไว้ก่อน และนับเป็นการขาดจริงเมื่อถึงวันนั้น",
     creditsN: "{c} หน่วยกิต",
+    dayBtn: "🗓️ ขาดทั้งวัน / ครึ่งวัน", dayTitle: "ขาดทั้งวันหรือครึ่งวัน",
+    dayNote: "บันทึกทุกวิชาของวันนั้นในครั้งเดียว เลือกวันในอนาคตเพื่อวางแผนลาล่วงหน้าได้",
+    dayPart: "ช่วงไหน?", wholeDay: "ทั้งวัน", morning: "ช่วงเช้า", afternoon: "ช่วงบ่าย",
+    willLog: "จะบันทึก {n} วิชา · {p} คาบ", willPlan: "จะวางแผนขาด {n} วิชา · {p} คาบ",
+    noClassThatDay: "วันนั้นไม่มีเรียน", noClassOn: "วันนั้นไม่มีเรียน: {r}", nothingToLog: "ไม่มีอะไรให้บันทึก — ไม่มีคาบเรียน หรือบันทึกไปแล้ว",
+    planIt: "วางแผน",
     friendsTitle: "เพื่อน", friendsNote: "แชร์โค้ดให้เพื่อน เมื่อคนใดคนหนึ่งใส่โค้ดของอีกฝ่าย ทั้งสองคนจะเห็นว่าอีกฝ่ายใกล้เกินโควตาแค่ไหน",
     myCode: "โค้ดของฉัน", addFriend: "ใส่โค้ดของเพื่อน", friendCodePh: "เช่น 7KQ2XD", link: "เพิ่ม",
     linked: "เพิ่มเพื่อนแล้ว ✓", codeNotFound: "ไม่พบโค้ดนี้", noFriends: "ยังไม่ได้เพิ่มเพื่อน",
@@ -123,7 +135,7 @@ const T = {
     absent: "ขาด", undo: "เลิกทำ ↩︎", markedToday: "บันทึกการขาดวันนี้แล้ว ✓",
     overBudget: "⚠️ เกินเส้น 20% แล้ว",
     subjectDetail: "รายวิชา", noAbsences: "ยังไม่มีการบันทึกการขาด",
-    addAbsence: "บันทึกการขาด", date: "วันที่", howManyPeriods: "กี่คาบ?",
+    addAbsence: "บันทึก / วางแผนการขาด", date: "วันที่", howManyPeriods: "กี่คาบ?",
     noteOptional: "หมายเหตุ (ไม่บังคับ)", notePh: "เช่น ป่วย, หาหมอฟัน", save: "บันทึก",
     logged: "บันทึกแล้ว ✓", deleted: "ลบแล้ว", deleteAbsenceQ: "ลบการขาดนี้?",
     editSubject: "แก้ไขวิชา", subjectName: "ชื่อวิชา", totalPeriods: "จำนวนคาบรวม (ภาคเรียน)",
@@ -363,14 +375,16 @@ function statusOf(used, budget) {
   if (left <= Math.max(1, Math.round(budget * 0.25))) return { cls: "warn", left };
   return { cls: "ok", left };
 }
-function slotsToday() {
+// part: "all" | "am" (periods 1–4, before lunch) | "pm" (periods 5–8)
+const inPart = (p, part) => part === "am" ? p <= 4 : part === "pm" ? p >= 5 : true;
+function slotsOn(date, part = "all") {
   if (!CAT || !CAT.sections[SECTION]) return [];
-  const wd = new Date().getDay();            // 0..6
-  if (!dayInfo(today()).open) return [];     // weekend, holiday, exams, outside term
-  const { letter } = weekInfoFor(today());
+  const wd = date.getDay();                  // 0..6
+  if (!dayInfo(date).open) return [];        // weekend, holiday, exams, outside term
+  const { letter } = weekInfoFor(date);
   const out = [];
   CAT.sections[SECTION].subjects.forEach((cs) => {
-    const periods = (cs.slots || []).filter((sl) => sl.week === letter && sl.day === wd).map((sl) => sl.period).sort((a, b) => a - b);
+    const periods = (cs.slots || []).filter((sl) => sl.week === letter && sl.day === wd && inPart(sl.period, part)).map((sl) => sl.period).sort((a, b) => a - b);
     if (periods.length) out.push({ name: cs.name, code: cs.code, color: cs.color, periods });
   });
   // sort by earliest period
@@ -395,7 +409,7 @@ function renderToday() {
   const hasSubjects = SUBJECTS.length > 0;
   $("firstRunCTA").style.display = hasSubjects ? "none" : "block";
   const dISO = iso(today());
-  const slots = slotsToday();
+  const slots = slotsOn(today());
   $("todayEmpty").style.display = (hasSubjects && slots.length === 0) ? "block" : "none";
   const di = dayInfo(today());
   $("todayEmptyText").textContent =
@@ -573,6 +587,63 @@ function openSubjectDetail(s) {
   });
 }
 
+// Whole / half day: log every class on that date at once (future date = planned)
+function openDayAbsence() {
+  let part = "all";
+  openSheet(`
+    <h2>${t("dayTitle")}</h2>
+    <p class="note" style="font-size:12px;">${t("dayNote")}</p>
+    <label class="field">${t("date")}</label>
+    <input type="date" id="dDate" />
+    <label class="field">${t("dayPart")}</label>
+    <div class="toggle-row" id="dPart" style="margin:4px 0 0;">
+      <button data-part="all" class="active">${t("wholeDay")}</button>
+      <button data-part="am">${t("morning")}</button>
+      <button data-part="pm">${t("afternoon")}</button>
+    </div>
+    <div id="dPreview" style="margin-top:12px;"></div>
+    <label class="field">${t("noteOptional")}</label>
+    <input type="text" id="dNote" placeholder="${t("notePh")}" />
+    <button class="btn primary" id="dSave" style="margin-top:18px;">${t("save")}</button>
+  `);
+  $("dDate").value = iso(today());
+  let plan = [];
+  const preview = () => {
+    const dISO = $("dDate").value || iso(today());
+    const date = new Date(dISO + "T00:00:00");
+    const di = dayInfo(date);
+    plan = slotsOn(date, part).map((sl) => ({ sl, subj: subjByName(sl.name) }))
+      .filter(({ subj }) => subj && !ABSENCES.some((a) => a.subject_id === subj.id && a.the_date === dISO));
+    const future = dISO > iso(today());
+    if (!di.open) {
+      $("dPreview").innerHTML = `<p class="empty" style="padding:10px;">${di.reason === "holiday" ? t("noClassOn", { r: di.label }) : t("noClassThatDay")}</p>`;
+    } else if (!plan.length) {
+      $("dPreview").innerHTML = `<p class="empty" style="padding:10px;">${t("nothingToLog")}</p>`;
+    } else {
+      const total = plan.reduce((n, x) => n + x.sl.periods.length, 0);
+      $("dPreview").innerHTML = `<div class="section-title">${t(future ? "willPlan" : "willLog", { n: plan.length, p: total })}</div>` +
+        plan.map(({ sl }) => `<div class="mini-row"><i style="background:${sl.color}"></i><span>${escapeHtml(sl.name)}</span><b>${t("periodShort")} ${sl.periods.join(", ")}</b></div>`).join("");
+    }
+    $("dSave").disabled = !plan.length;
+    $("dSave").textContent = future ? t("planIt") : t("save");
+  };
+  $("dDate").onchange = preview;
+  $("dPart").querySelectorAll("button").forEach((b) => b.onclick = () => {
+    part = b.dataset.part;
+    $("dPart").querySelectorAll("button").forEach((x) => x.classList.toggle("active", x === b));
+    preview();
+  });
+  $("dSave").onclick = async () => {
+    if (!plan.length) return;
+    const dISO = $("dDate").value || iso(today()), note = $("dNote").value.trim() || null;
+    const rows = plan.map(({ sl, subj }) => ({ user_id: UID, subject_id: subj.id, the_date: dISO, periods: sl.periods.length, note }));
+    const { data, error } = await sb.from("absences").insert(rows).select();
+    if (error) { toast(t("couldntSave")); return; }
+    ABSENCES.push(...data); closeSheet(); renderAll(); toast(t("logged"));
+  };
+  preview();
+}
+
 function openAddAbsence(s) {
   let val = 1;
   openSheet(`
@@ -739,6 +810,7 @@ function wireSettings() {
   $("pickSectionBtn").onclick = openSectionPicker;
   $("pickSectionCta").onclick = openSectionPicker;
   $("addSubjBtn").onclick = () => openSubjectEdit(null);
+  $("dayBtn").onclick = openDayAbsence;
   $("exportBtn").onclick = exportBackup;
   $("importBtn").onclick = importBackup;
   document.querySelectorAll("#thisWeekToggle button").forEach((b) => b.onclick = () => setThisWeek(b.dataset.week));

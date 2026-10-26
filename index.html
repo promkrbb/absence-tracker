@@ -4,13 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1" />
   <title>Absence Budget</title>
-  <meta name="theme-color" content="#4f46e5" />
+  <meta name="theme-color" content="#003A87" />
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="icon" href="icon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="icon.svg" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
   <meta name="apple-mobile-web-app-title" content="Absence" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;600&family=Sarabun:wght@400;600;700&display=swap" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -26,7 +29,8 @@
       <span class="week-badge" id="weekBadge">—</span>
       <span class="sec" id="secLabel">—</span>
     </div>
-    <div class="day-head" style="margin-top:2px;">
+    <button class="btn accent" id="dayBtn" data-i18n="dayBtn">🗓️ Absent a whole / half day</button>
+    <div class="day-head" style="margin-top:16px;">
       <h3 style="font-size:19px;" id="todayTitle" data-i18n="todaysClasses">Today's classes</h3>
     </div>
     <p class="note" data-i18n="todayNote">Tap “Absent” on a class you missed today — it logs those periods against your 20% budget.</p>
